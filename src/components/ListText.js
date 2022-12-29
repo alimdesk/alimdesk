@@ -1,9 +1,13 @@
 import React from "react";
 
 function ListText(props) {
+  const style = {color: props.line.color,
+                fontFamily: props.line.font,
+                fontSize: 12
+     }
 
   return (
-<div></div>
+<div className="ListText" style={style}>{props.line.text}</div>
   );
 }
 export default ListText;

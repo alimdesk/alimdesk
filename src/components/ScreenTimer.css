@@ -1,0 +1,8 @@
+.ScreenTimer{
+    position: relative;
+    top: 35%;
+    visibility: hidden;
+    user-select: none;
+    animation-timing-function: linear;
+    animation-iteration-count: 1;
+    }

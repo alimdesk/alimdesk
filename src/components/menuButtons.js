@@ -1,9 +1,9 @@
 import React from "react";
 
-function menuButtons(props) {
+function MenuButtons(props) {
 
   return (
 <div></div>
   );
 }
-export default menuButtons;
+export default MenuButtons;
