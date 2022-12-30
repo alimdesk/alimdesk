@@ -33,13 +33,21 @@ function ScreenTimer(props) {
         return fulltime;
     }
     const backTo1stAnim=()=>{
-      props.setcrntScrRender(0);
+      if(props.lines.length===0){
+        props.setcrntScrRender(1);
+      }else{
+        props.setcrntScrRender(0);
+      }
+
+      
     }
     const style = {color: props.timer.color,
       fontFamily: props.timer.font,
       fontSize: props.timer.size,
-      animationName: props.timer.animate,
+      visibility: props.lines.length===0?"visible":"",
+      animationName: props.lines.length===0?"":props.timer.animate,
       animationDuration: `5s`,
+      animationIterationCount: 1
      }
 
   return (

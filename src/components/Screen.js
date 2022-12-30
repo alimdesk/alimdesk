@@ -18,12 +18,14 @@ function Screen(props) {
         element={element}
         index={i}
         lines={props.lines}
+        timer={props.timer}
         crntScrRender={props.crntScrRender}
         setcrntScrRender={props.setcrntScrRender}
         />)
-    }else{
+    }else if(props.timer.on===true){
       return(<ScreenTimer timer={props.timer}
-        currentTime={Date.now()}
+        lines={props.lines}
+        currentTime={props.currentTime}
         crntScrRender={props.crntScrRender}
         setcrntScrRender={props.setcrntScrRender}/>
         )

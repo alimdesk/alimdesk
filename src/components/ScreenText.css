@@ -1,9 +1,8 @@
 .ScreenText{
 position: relative;
 top: 35%;
-visibility: hidden;
 user-select: none;
+visibility: hidden;
 word-wrap: break-word;
 animation-timing-function: linear;
-animation-iteration-count: 1;
 }

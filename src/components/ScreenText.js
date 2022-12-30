@@ -7,12 +7,21 @@ function ScreenText(props) {
   const style = {color: props.element.color,
                  fontFamily: props.element.font,
                  fontSize: props.element.size,
-                 animationName: props.element.animate,
-                 animationDuration: `5s`
+                 visibility: props.lines.length===1?"visible":"",
+                 animationName: props.lines.length===1?"":props.element.animate,
+                 animationDuration: `5s`,
+                 animationIterationCount: 1
                 }
                   
   const nextAnimation=()=>{
-    props.setcrntScrRender(props.index+1);
+    if(props.index!==props.lines.length-1||props.timer.on===true){
+      props.setcrntScrRender(props.index+1);
+    }
+    else{
+      props.setcrntScrRender(0);
+
+    }
+    
   }
 
   return (
