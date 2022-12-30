@@ -2,9 +2,7 @@ import { useState, useEffect } from 'react';
 import './App.css';
 import Settings from './components/Settings';
 import Screen from './components/Screen';
-import EditButton from './components/EditButton';
 
-//make time update itself
 //create theme settings
 //create timer settings
 //fix all ui
@@ -52,11 +50,27 @@ function App() {
   const [crntScrRender, setcrntScrRender] = useState(0);
   const [currentTime, setCurrentTime] = useState(Date.now());
   const [lines, setLines] = useState([]);
-  const [timer, setTimer] = useState({message: "",target: "11:00",color:"white",font: fontarray[0],size: 40,animate: animarray[0]}); 
+  const [timer, setTimer] = useState({message: "",target: "11:00",color:"white",font: fontarray[0],size: 40,animate: animarray[1], on: true}); 
   const playOrPause =()=>{
+    if(lines.length===0){
+      setcrntScrRender(1);
+    }else{
+      setcrntScrRender(0);
+    }
     let state = !pause;
     setPause(state);
   }
+  useEffect(()=>{
+    let interval;
+    if(pause===false){
+       interval= setInterval(() => {
+        setCurrentTime(Date.now());
+      }, 300); 
+    }
+
+    return ()=> clearInterval(interval)
+
+  },[pause])
 
   return (
     <div className="App">
