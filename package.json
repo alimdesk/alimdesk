@@ -1,7 +1,7 @@
 {
   "name": "alimintro",
   "version": "0.1.0",
-  "homepage": "https://alimdesk.github.io/alimdesk",
+  "homepage": "https://alimdesk.github.io/alimdesk/",
   "private": true,
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.2.0",
