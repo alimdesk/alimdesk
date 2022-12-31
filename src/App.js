@@ -3,7 +3,6 @@ import './App.css';
 import Settings from './components/Settings';
 import Screen from './components/Screen';
 
-//create theme settings
 //buttons for listtext
 //fix all ui
 //create save to localstorage
@@ -95,7 +94,7 @@ function App() {
     }
   }
 
-  const ref = useRef(null);
+  //const ref = useRef(null);
 
   useEffect(()=>{
     let interval;
@@ -103,9 +102,9 @@ function App() {
        interval= setInterval(() => {
         setCurrentTime(Date.now());
       }, 300); 
-      ref.current.focus();
+      
     }
-
+    //ref.current.focus();
     return ()=> clearInterval(interval)
 
   },[pause])
@@ -119,8 +118,9 @@ function App() {
       playOrPause();
     }
   }
+  //tabIndex={1} onKeyDown={keypressResume} ref={ref}
   return (
-    <div className="App"  tabIndex={1} onKeyDown={keypressResume} ref={ref}>
+    <div className="App"  >
       {pause===true?
       <Settings
       setInputText={setInputText}
