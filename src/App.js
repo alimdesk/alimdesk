@@ -4,7 +4,7 @@ import Settings from './components/Settings';
 import Screen from './components/Screen';
 
 //create theme settings
-//create timer settings
+//buttons for listtext
 //fix all ui
 //create save to localstorage
 //add modifiable duration
@@ -45,11 +45,13 @@ function App() {
   const [inputFont, setInputFont] = useState(fontarray[0]);
   const [inputSize, setInputSize] = useState(40);
   const [inputTheme, setInputTheme] = useState("");
-  const [inputAnim, setInputAnimation] = useState(animarray[0]);
-  const [menuOptions, setMenuOptions] = useState("text");
+  const [inputAnim, setInputAnimation] = useState(animarray[1]);
+  const [menuOptions, setMenuOptions] = useState("Text");
   const [crntScrRender, setcrntScrRender] = useState(0);
   const [currentTime, setCurrentTime] = useState(Date.now());
   const [lines, setLines] = useState([]);
+  const [tmrmsg, setTimerMessage] = useState("");
+  const [targetTime, setTargetTime] = useState("11:00");
   const [timer, setTimer] = useState({message: "",target: "11:00",color:"white",font: fontarray[0],size: 40,animate: animarray[1], on: true}); 
   const playOrPause =()=>{
     if(lines.length===0){
@@ -87,7 +89,10 @@ function App() {
       setInputTheme={setInputTheme}
       setMenuOptions={setMenuOptions}
       setInputAnimation={setInputAnimation}
+      setTargetTime={setTargetTime}
+      setTimerMessage={setTimerMessage}
       playOrPause={playOrPause}
+      tmrmsg={tmrmsg}
       inputAnim={inputAnim}
       inputTheme={inputTheme}
       inputFont={inputFont}
@@ -101,6 +106,8 @@ function App() {
       menuOptions={menuOptions}
       fontarray={fontarray}
       animarray={animarray}
+      targetTime={targetTime}
+
       />: <Screen
       lines={lines}
       timer={timer}
