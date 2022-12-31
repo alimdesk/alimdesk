@@ -12,7 +12,7 @@ function Settings(props) {
     <MenuButtons
     menuOptions={props.menuOptions}
     setMenuOptions={props.setMenuOptions}/>
-      {props.menuOptions==="text"?<TextSettings
+      {props.menuOptions==="Text"?<TextSettings
       setInputText={props.setInputText}
       setLines={props.setLines}
       setInputColor={props.setInputColor}
@@ -27,21 +27,23 @@ function Settings(props) {
       inputFont={props.inputFont}
       inputSize={props.inputSize}
       lines={props.lines}
-      />:props.menuOptions==="timer"?<TimerSettings
+      />:props.menuOptions==="Timer"?<TimerSettings
       setTimer={props.setTimer}
       setInputColor={props.setInputColor}
       setInputFont={props.setInputFont}
       setInputSize={props.setInputSize}
-      setInputText={props.setInputText}
       setInputAnimation={props.setInputAnimation}
+      setTargetTime={props.setTargetTime}
+      setTimerMessage={props.setTimerMessage}
       timer={props.timer}
+      tmrmsg={props.tmrmsg}
       inputAnim={props.inputAnim}
       inputColor={props.inputColor}
-      inputText={props.inputText}
       inputFont={props.inputFont}
-      inputSize={inputSize}
+      inputSize={props.inputSize}
       fontarray={props.fontarray}
       animarray={props.animarray}
+      targetTime={props.targetTime}
       />:<ThemeSettings
       setInputTheme={props.setInputTheme}
       inputTheme={props.inputTheme}

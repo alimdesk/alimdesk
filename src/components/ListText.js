@@ -3,7 +3,7 @@ import React from "react";
 function ListText(props) {
   const style = {color: props.line.color,
                 fontFamily: props.line.font,
-                fontSize: 12
+                fontSize: 20
      }
 
   return (

@@ -1,6 +1,6 @@
 .ScreenTimer{
     position: relative;
-    top: 35%;
+    top: 30%;
     visibility: hidden;
     user-select: none;
     animation-timing-function: linear;

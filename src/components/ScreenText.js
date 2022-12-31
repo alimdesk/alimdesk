@@ -7,8 +7,8 @@ function ScreenText(props) {
   const style = {color: props.element.color,
                  fontFamily: props.element.font,
                  fontSize: props.element.size,
-                 visibility: props.lines.length===1?"visible":"",
-                 animationName: props.lines.length===1?"":props.element.animate,
+                 visibility: props.lines.length===1&&props.timer.on===false?"visible":"",
+                 animationName: props.lines.length===1&&props.timer.on===false?"":props.element.animate,
                  animationDuration: `5s`,
                  animationIterationCount: 1
                 }

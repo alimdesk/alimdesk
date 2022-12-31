@@ -11,6 +11,9 @@ function ScreenTimer(props) {
   }
 
     const timeToString=()=>{
+      if(props.timer.target===""){
+        return "";
+      }
       let tmarray = props.timer.target.split(":");
       const currdate = new Date(props.currentTime);
       let currhr = currdate.getHours();
@@ -51,7 +54,10 @@ function ScreenTimer(props) {
      }
 
   return (
-<div className="ScreenTimer" style={style} onAnimationEnd={backTo1stAnim}>{timeToString()}</div>
+<div className="ScreenTimer" style={style} onAnimationEnd={backTo1stAnim}>
+  <div className="ScreenTimer-text">{props.timer.message}</div>
+  <div className="ScreenTimer-time">{timeToString()}</div>
+  </div>
   );
 }
 export default ScreenTimer;
