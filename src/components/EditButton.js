@@ -1,10 +1,15 @@
 import React from "react";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import {faPause } from '@fortawesome/free-solid-svg-icons'
+import "./EditButton.css";
 
 function EditButton(props) {
 
   return (
-<div>
-  <div style={{color:"white"}} onClick={props.playOrPause}>!!!</div>
+<div className="EditButton"onClick={props.playOrPause} onKeyUp={props.playOrPause}>
+  <div className="inneredit" >
+  <FontAwesomeIcon icon={faPause} /> 
+  </div>
 </div>
   );
 }

@@ -5,11 +5,15 @@ import EditButton from "./EditButton";
 import './Screen.css';
 
 function Screen(props) {
-  const keypressResume=(e)=>{
-    if(e.key==='Escape'||e.key==='p'){
-      props.playOrPause();
-    }
+  const backgroundstyle={
+    height: "100%",
+    width: "100%",
+    position: "absolute",
+    top: 0,
+    left: 0,
+    zIndex: 2
   }
+
   const renderOnScreen=(i)=>{
     if(i<props.lines.length){
       let element = props.lines[i];
@@ -33,8 +37,9 @@ function Screen(props) {
   }
 
   return (
-<div className="Screen" onKeyDown={keypressResume}>
+<div className="Screen" >
 <EditButton playOrPause={props.playOrPause}/>
+    {props.renderTheme(backgroundstyle)}
     <div className="content">
       {renderOnScreen(props.crntScrRender)}
     </div>

@@ -47,6 +47,8 @@ function Settings(props) {
       />:<ThemeSettings
       setInputTheme={props.setInputTheme}
       inputTheme={props.inputTheme}
+      renderTheme={props.renderTheme}
+      gifarray={props.gifarray}
       />}
       <button onClick={props.playOrPause}>
         Play

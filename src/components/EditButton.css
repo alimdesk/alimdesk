@@ -1,0 +1,16 @@
+.EditButton{
+    z-index: 5;
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding: 10px;
+
+}
+.inneredit{
+    color: white;
+    font-size: 10px;
+    transition: font-size 0.1s linear;
+}
+.EditButton:hover .inneredit{
+    font-size: 4vw;
+}
