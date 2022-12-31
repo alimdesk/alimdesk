@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect,useRef } from 'react';
 import './App.css';
 import Settings from './components/Settings';
 import Screen from './components/Screen';
@@ -39,12 +39,19 @@ function App() {
     "Fade",
     "Scroll"
   ]
+  const gifarray=[
+    {name: "blue-shift",src: "images/blue-shift.gif",type: "image/gif"},
+    {name: "galaxy",src: "images/galaxy.gif",type: "image/gif"},
+    {name: "golden-light",src: "images/golden-light.gif",type: "image/gif"},
+    {name: "sparkling-stars",src: "images/sparkling-stars.gif",type: "image/gif"},
+    {name: "cross",src: "images/cross.gif",type: "image/gif"}
+  ]
   const [pause, setPause] = useState(true);  
   const [inputText, setInputText] = useState("");
-  const [inputColor, setInputColor] = useState("#000000");
+  const [inputColor, setInputColor] = useState("#FFFFFF");
   const [inputFont, setInputFont] = useState(fontarray[0]);
   const [inputSize, setInputSize] = useState(40);
-  const [inputTheme, setInputTheme] = useState("");
+  const [inputTheme, setInputTheme] = useState(gifarray[4]);
   const [inputAnim, setInputAnimation] = useState(animarray[1]);
   const [menuOptions, setMenuOptions] = useState("Text");
   const [crntScrRender, setcrntScrRender] = useState(0);
@@ -52,7 +59,7 @@ function App() {
   const [lines, setLines] = useState([]);
   const [tmrmsg, setTimerMessage] = useState("");
   const [targetTime, setTargetTime] = useState("11:00");
-  const [timer, setTimer] = useState({message: "",target: "11:00",color:"white",font: fontarray[0],size: 40,animate: animarray[1], on: true}); 
+  const [timer, setTimer] = useState({message: "",target: "11:00",color:"#FFFFFF",font: fontarray[0],size: 40,animate: animarray[1], on: true}); 
   const playOrPause =()=>{
     if(lines.length===0){
       setcrntScrRender(1);
@@ -60,22 +67,60 @@ function App() {
       setcrntScrRender(0);
     }
     let state = !pause;
+    if(state===false){
+      if(document.fullscreenElement===null){
+        document.body.requestFullscreen();
+      }
+    }else if(state===true){
+      if(document.fullscreenElement!==null){
+        document.exitFullscreen();
+      }
+      
+    }
     setPause(state);
   }
+
+  const renderTheme=(styleobj)=>{
+    if(inputTheme===null){
+      return "";
+    }else{
+      if(inputTheme.type.split("/")[0]==="image"){
+        return (<img style={styleobj} src={inputTheme.src} alt={inputTheme.name}/>);
+      }else if(inputTheme.type.split("/")[0]==="video"){
+        return (<video style={styleobj} src={inputTheme.src} muted autoPlay loop/>);
+      }else{
+        return "";
+      }
+
+    }
+  }
+
+  const ref = useRef(null);
+
   useEffect(()=>{
     let interval;
     if(pause===false){
        interval= setInterval(() => {
         setCurrentTime(Date.now());
       }, 300); 
+      ref.current.focus();
     }
 
     return ()=> clearInterval(interval)
 
   },[pause])
+  
+  useEffect(()=>{
+    //save stuff here
 
+  },[])
+  const keypressResume=(e)=>{
+    if(e.key==='Control'){
+      playOrPause();
+    }
+  }
   return (
-    <div className="App">
+    <div className="App"  tabIndex={1} onKeyDown={keypressResume} ref={ref}>
       {pause===true?
       <Settings
       setInputText={setInputText}
@@ -92,6 +137,8 @@ function App() {
       setTargetTime={setTargetTime}
       setTimerMessage={setTimerMessage}
       playOrPause={playOrPause}
+      renderTheme={renderTheme}
+      gifarray={gifarray}
       tmrmsg={tmrmsg}
       inputAnim={inputAnim}
       inputTheme={inputTheme}
@@ -111,9 +158,11 @@ function App() {
       />: <Screen
       lines={lines}
       timer={timer}
+      inputTheme={inputTheme}
       currentTime={currentTime}
       playOrPause={playOrPause}
       crntScrRender={crntScrRender}
+      renderTheme={renderTheme}
       setcrntScrRender={setcrntScrRender}
       />}
     </div>
