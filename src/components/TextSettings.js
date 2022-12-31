@@ -43,12 +43,14 @@ const submitLine=(e)=>{
 }
 
   return (
-<div>
+<div className="TextSettings" style={{userSelect:"none"}}>
   <div>
     {props.lines.map((line)=>{
       return (<ListText
       key={line.id}
       line={line}
+      list={props.lines}
+      setLines={props.setLines}
       />)
     })}
   </div>

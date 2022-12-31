@@ -1,6 +1,7 @@
 import React from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faX,faPaperPlane } from '@fortawesome/free-solid-svg-icons'
+import TimerPreview from "./TimerPreview";
 
 function TimerSettings(props) {
   const fonts = props.fontarray;
@@ -104,6 +105,7 @@ const submitLine=(e)=>{
                 <FontAwesomeIcon icon={faPaperPlane} /> 
             </button>
         </form>:""}
+              <TimerPreview timer={props.timer}/>
 </div>
   );
 }
