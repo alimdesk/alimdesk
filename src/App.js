@@ -5,9 +5,7 @@ import Screen from './components/Screen';
 
 //buttons for listtext
 //fix all ui
-//create save to localstorage
 //add modifiable duration
-//create menu buttons
 //try to fix keydown pause
 
 
@@ -39,11 +37,11 @@ function App() {
     "Scroll"
   ]
   const gifarray=[
-    {name: "blue-shift",src: "images/blue-shift.gif",type: "image/gif"},
-    {name: "galaxy",src: "images/galaxy.gif",type: "image/gif"},
-    {name: "golden-light",src: "images/golden-light.gif",type: "image/gif"},
-    {name: "sparkling-stars",src: "images/sparkling-stars.gif",type: "image/gif"},
-    {name: "cross",src: "images/cross.gif",type: "image/gif"}
+    {name: "blue-shift",src: "/alimdesk/images/blue-shift.gif",type: "image/gif"},
+    {name: "galaxy",src: "/alimdesk/images/galaxy.gif",type: "image/gif"},
+    {name: "golden-light",src: "/alimdesk/images/golden-light.gif",type: "image/gif"},
+    {name: "sparkling-stars",src: "/alimdesk/images/sparkling-stars.gif",type: "image/gif"},
+    {name: "cross",src: "/alimdesk/images/cross.gif",type: "image/gif"}
   ]
   const [pause, setPause] = useState(true);  
   const [inputText, setInputText] = useState("");
@@ -52,13 +50,14 @@ function App() {
   const [inputSize, setInputSize] = useState(40);
   const [inputTheme, setInputTheme] = useState(gifarray[4]);
   const [inputAnim, setInputAnimation] = useState(animarray[1]);
+  const [inputDuration, setInputDuration] = useState("5s");
   const [menuOptions, setMenuOptions] = useState("Text");
   const [crntScrRender, setcrntScrRender] = useState(0);
   const [currentTime, setCurrentTime] = useState(Date.now());
   const [lines, setLines] = useState([]);
   const [tmrmsg, setTimerMessage] = useState("");
   const [targetTime, setTargetTime] = useState("11:00");
-  const [timer, setTimer] = useState({message: "",target: "11:00",color:"#FFFFFF",font: fontarray[0],size: 40,animate: animarray[1], on: true}); 
+  const [timer, setTimer] = useState({message: "",target: "11:00",color:"#FFFFFF",font: fontarray[0],size: 40,animate: animarray[1],duration: "5s", on: true}); 
   const playOrPause =()=>{
     if(lines.length===0){
       setcrntScrRender(1);
@@ -110,9 +109,44 @@ function App() {
   },[pause])
   
   useEffect(()=>{
-    //save stuff here
+    // load saved stuff here
+    if(localStorage.getItem("lines")!==null){
+      let newlines = JSON.parse(localStorage.getItem("lines"));
+      setLines(newlines);
+    }
+    if(localStorage.getItem("timer")!==null){
+      let newtimer = JSON.parse(localStorage.getItem("timer"));
+      setTimer(newtimer);
+    }
+    if(localStorage.getItem("theme")!==null){
+      let newtheme = JSON.parse(localStorage.getItem("theme"));
+      setInputTheme(newtheme);
+    }
 
   },[])
+
+  useEffect(()=>{
+    // save theme if theme is in array
+    let filtergifs = gifarray.filter(g=>{return g.name===inputTheme.name && g.src===inputTheme.src && g.type===inputTheme.type});
+    if(filtergifs.length==1){
+      localStorage.setItem("theme",JSON.stringify(inputTheme));
+      
+    }
+
+  },[inputTheme])
+
+  useEffect(()=>{
+    // save list 
+    localStorage.setItem("lines",JSON.stringify(lines));
+
+  },[lines])
+
+  useEffect(()=>{
+    //save timer
+    localStorage.setItem("timer",JSON.stringify(timer));
+
+  },[timer])
+
   const keypressResume=(e)=>{
     if(e.key==='Control'){
       playOrPause();
@@ -136,6 +170,7 @@ function App() {
       setInputAnimation={setInputAnimation}
       setTargetTime={setTargetTime}
       setTimerMessage={setTimerMessage}
+      setInputDuration={setInputDuration}
       playOrPause={playOrPause}
       renderTheme={renderTheme}
       gifarray={gifarray}
@@ -145,6 +180,7 @@ function App() {
       inputFont={inputFont}
       inputSize={inputSize}
       inputColor={inputColor}
+      inputDuration={inputDuration}
       pause={pause}
       inputText={inputText}
       currentTime={currentTime}
