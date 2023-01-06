@@ -6,7 +6,7 @@ function TimerPreview(props) {
     fontFamily: props.timer.font,
     fontSize: "2rem",
     animationName: props.timer.animate,
-    animationDuration: `5s`,
+    animationDuration: props.timer.duration,
     animationIterationCount: "infinite"
   }
 

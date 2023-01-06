@@ -3,16 +3,16 @@ import React from "react";
 function ThemeSettings(props) {
   let gifs =props.gifarray;
   const previewstyle={height: "30vh",
-                      width: "50vw"
+                      width: "30vw"
                       }
   
   const handleGif=(e)=>{
-    let num = parseInt(e.target.value);
-    props.setInputTheme(gifs[num]);
+    //console.log(JSON.parse(e.target.value))
+    props.setInputTheme(JSON.parse(e.target.value));
   }
   const handleFile=(e)=>{
     const newtheme = {
-      name:e.target.files[0].name,
+      name: e.target.files[0].name,
       type: e.target.files[0].type,
       src: URL.createObjectURL(e.target.files[0])
     }
@@ -20,10 +20,10 @@ function ThemeSettings(props) {
   }
 
   return (
-<div>
-<select className="themes-list" onInput={handleGif} >
+<div className="ThemeSettings">
+<select className="themes-list" onInput={handleGif} defaultValue={JSON.stringify(props.inputTheme)} >
   {gifs.map((x,i)=>{
-                return (<option key={x.name} style={{ color: "black",fontSize:20}} value={i}>{x.name}</option>)
+                return (<option key={x.name} style={{ color: "black",fontSize:20}} value={JSON.stringify(x)}>{x.name}</option>)
               })}
 </select>
 <input type="file" className="theme-file" accept="image/*,video/*" onInput={handleFile}/>

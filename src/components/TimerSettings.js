@@ -15,6 +15,7 @@ function TimerSettings(props) {
         font: props.timer.font,
         size: props.timer.size,
         animate: props.timer.animate,
+        duration: props.timer.duration,
         on: true
       });
     }else{
@@ -25,6 +26,7 @@ function TimerSettings(props) {
         font: props.timer.font,
         size: props.timer.size,
         animate: props.timer.animate,
+        duration: props.timer.duration,
         on: false
       });
 
@@ -59,6 +61,7 @@ const submitLine=(e)=>{
       font: props.inputFont,
       size: props.inputSize,
       animate: props.inputAnim,
+      duration: props.inputDuration,
       on: props.timer.on
 
     }
@@ -68,7 +71,7 @@ const submitLine=(e)=>{
 }
 
   return (
-<div>
+<div className="TimeSettings">
 <label htmlFor="true"  className="form-label">ON</label>
 <input type="radio" value="true" className="form-radio" id="true"  name="on/off" defaultChecked={props.timer.on===true?true:false} onChange={handleOnOff} />
 <label htmlFor="false"  className="form-label">OFF</label>
@@ -81,7 +84,7 @@ const submitLine=(e)=>{
             <input type="color" value={props.inputColor} className="form-timer-color" id="form-timer-color" onInput={handleColor}  />
             <label htmlFor="form-timer-size" className="form-label">Size</label>
             <select name="size" id="form-timer-size"  className="form-timer-size"  value={props.inputSize} onInput={handleSize}>
-              {[...Array(70)].map((x,i)=>{
+              {[...Array(71)].map((x,i)=>{
 
                   return (<option key={i} value={`${i+40}`}>{`${i+40}`}</option>)
                 
@@ -104,8 +107,9 @@ const submitLine=(e)=>{
                 <span className="button-timer-text">Submit</span>
                 <FontAwesomeIcon icon={faPaperPlane} /> 
             </button>
+            <TimerPreview timer={props.timer}/>
         </form>:""}
-              <TimerPreview timer={props.timer}/>
+              
 </div>
   );
 }

@@ -9,7 +9,7 @@ function ScreenText(props) {
                  fontSize: props.element.size,
                  visibility: props.lines.length===1&&props.timer.on===false?"visible":"",
                  animationName: props.lines.length===1&&props.timer.on===false?"":props.element.animate,
-                 animationDuration: `5s`,
+                 animationDuration: props.element.duration,
                  animationIterationCount: 1
                 }
                   

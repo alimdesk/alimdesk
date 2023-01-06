@@ -34,7 +34,8 @@ const submitLine=(e)=>{
       font: props.inputFont,
       color: props.inputColor,
       size: props.inputSize,
-      animate: props.inputAnim
+      animate: props.inputAnim,
+      duration: props.inputDuration
 
     }
     props.setLines([...props.lines,header]);
@@ -60,7 +61,7 @@ const submitLine=(e)=>{
             <input type="color" value={props.inputColor} className="form-color" id="form-time" onInput={handleColor}  />
             <label htmlFor="size" className="form-label">Size</label>
             <select name="size" id="size"  className="form-size" value={props.inputSize} onInput={handleSize}>
-              {[...Array(70)].map((x,i)=>{
+              {[...Array(71)].map((x,i)=>{
 
                   return (<option key={i} value={`${i+40}`}>{`${i+40}`}</option>)
                 
