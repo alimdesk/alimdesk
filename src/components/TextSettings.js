@@ -19,6 +19,9 @@ const handleSize=(e)=>{
   let num = parseInt(e.target.value);
   props.setInputSize(num);
 }
+const handleDuration=(e)=>{
+  props.setInputDuration(e.target.value);
+}
 const handleFont=(e)=>{
   props.setInputFont(e.target.value);
 }
@@ -79,7 +82,14 @@ const submitLine=(e)=>{
                  return (<option key={x} value={`${x}`}>{`${x}`}</option>)
               })}
             </select>
+            <label htmlFor="duration" className="form-label">Duration</label>
+            <select name="duration" id="duration"  className="form-duration" value={props.inputDuration} onInput={handleDuration}>
+              {[...Array(10)].map((x,i)=>{
 
+                  return (<option key={i} value={`${i+1}s`}>{`${i+1} seconds`}</option>)
+                
+              })}
+            </select>
             <button className="form-button" type="submit" onClick={submitLine}> 
                 <span className="button-text">Submit</span>
                 <FontAwesomeIcon icon={faPaperPlane} /> 

@@ -59,6 +59,7 @@ const changeAnim=(e)=>{
 <div className="ListText" style={style}>
   <div className="listbutton-text">
   <input type="text" className="list-text" value={props.line.text} onInput={changeText}/>
+  <input type="color" className="list-color" value={props.line.color} onInput={changeColor}/>
   <button className="listbutton" onClick={deletehandler}>
     <FontAwesomeIcon icon={faX}/>
   </button>

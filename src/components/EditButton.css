@@ -3,14 +3,18 @@
     position: absolute;
     right: 0;
     top: 0;
-    padding: 10px;
+    padding: 10px 10px 3rem 3rem;
 
 }
 .inneredit{
     color: white;
     font-size: 10px;
+    background-color: black;
+    padding:  1px 3px;
+    border-radius: 20%;
     transition: font-size 0.1s linear;
 }
 .EditButton:hover .inneredit{
-    font-size: 4vw;
+    font-size: 3.5rem;
+    padding: 0 10px;
 }

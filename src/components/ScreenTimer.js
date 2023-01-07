@@ -48,7 +48,7 @@ function ScreenTimer(props) {
     let ans = timeToString();
     if(ans=== "" || ans.includes("NaN")){
       return false;
-    }else if(parseInt(ans.split(":")[2])<=11){
+    }else if(ans.split(":")[0]=="00" && ans.split(":")[1]=="00" && parseInt(ans.split(":")[2])<=11){
       return true;
     }else{
       return false;

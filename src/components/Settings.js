@@ -31,23 +31,9 @@ function Settings(props) {
       lines={props.lines}
       />:props.menuOptions==="Timer"?<TimerSettings
       setTimer={props.setTimer}
-      setInputColor={props.setInputColor}
-      setInputFont={props.setInputFont}
-      setInputSize={props.setInputSize}
-      setInputAnimation={props.setInputAnimation}
-      setTargetTime={props.setTargetTime}
-      setTimerMessage={props.setTimerMessage}
-      setInputDuration={props.setInputDuration}
       timer={props.timer}
-      tmrmsg={props.tmrmsg}
-      inputAnim={props.inputAnim}
-      inputColor={props.inputColor}
-      inputFont={props.inputFont}
-      inputSize={props.inputSize}
-      inputDuration={props.inputDuration}
       fontarray={props.fontarray}
       animarray={props.animarray}
-      targetTime={props.targetTime}
       />:<ThemeSettings
       setInputTheme={props.setInputTheme}
       inputTheme={props.inputTheme}
