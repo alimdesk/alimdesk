@@ -5,8 +5,8 @@ import Screen from './components/Screen';
 
 //buttons for listtext
 //fix all ui
-//add modifiable duration
 //try to fix keydown pause
+//add more fonts?
 
 
 function App() {
@@ -55,9 +55,8 @@ function App() {
   const [crntScrRender, setcrntScrRender] = useState(0);
   const [currentTime, setCurrentTime] = useState(Date.now());
   const [lines, setLines] = useState([]);
-  const [tmrmsg, setTimerMessage] = useState("");
-  const [targetTime, setTargetTime] = useState("11:00");
   const [timer, setTimer] = useState({message: "",target: "11:00",color:"#FFFFFF",font: fontarray[0],size: 40,animate: animarray[1],duration: "5s", on: true}); 
+  const ref = useRef(null);
   const playOrPause =()=>{
     if(lines.length===0){
       setcrntScrRender(1);
@@ -67,11 +66,15 @@ function App() {
     let state = !pause;
     if(state===false){
       if(document.fullscreenElement===null){
-        document.body.requestFullscreen();
+        document.body.requestFullscreen()
+        .then(() =>{})
+        .catch((err) => console.error(err));
       }
     }else if(state===true){
       if(document.fullscreenElement!==null){
-        document.exitFullscreen();
+        document.exitFullscreen()
+        .then(() =>{})
+        .catch((err) => console.error(err));
       }
       
     }
@@ -93,8 +96,6 @@ function App() {
     }
   }
 
-  //const ref = useRef(null);
-
   useEffect(()=>{
     let interval;
     if(pause===false){
@@ -103,7 +104,7 @@ function App() {
       }, 300); 
       
     }
-    //ref.current.focus();
+    
     return ()=> clearInterval(interval)
 
   },[pause])
@@ -122,6 +123,7 @@ function App() {
       let newtheme = JSON.parse(localStorage.getItem("theme"));
       setInputTheme(newtheme);
     }
+    
 
   },[])
 
@@ -148,13 +150,11 @@ function App() {
   },[timer])
 
   const keypressResume=(e)=>{
-    if(e.key==='Control'){
-      playOrPause();
-    }
   }
+
   //tabIndex={1} onKeyDown={keypressResume} ref={ref}
   return (
-    <div className="App"  >
+    <div className="App" >
       {pause===true?
       <Settings
       setInputText={setInputText}
@@ -168,13 +168,10 @@ function App() {
       setInputTheme={setInputTheme}
       setMenuOptions={setMenuOptions}
       setInputAnimation={setInputAnimation}
-      setTargetTime={setTargetTime}
-      setTimerMessage={setTimerMessage}
       setInputDuration={setInputDuration}
       playOrPause={playOrPause}
       renderTheme={renderTheme}
       gifarray={gifarray}
-      tmrmsg={tmrmsg}
       inputAnim={inputAnim}
       inputTheme={inputTheme}
       inputFont={inputFont}
@@ -189,7 +186,6 @@ function App() {
       menuOptions={menuOptions}
       fontarray={fontarray}
       animarray={animarray}
-      targetTime={targetTime}
 
       />: <Screen
       lines={lines}
