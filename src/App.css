@@ -3,9 +3,10 @@ html{
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  background-color: #d1b666;
+  background-color: black;
 }
 body{
+  position: relative;
   margin: 0;
  overflow-y: hidden;
  overflow-x: hidden;
@@ -14,6 +15,7 @@ body{
 }
 
 #root{
+  position: relative;
   height:100%;
   width: 100%;
 }

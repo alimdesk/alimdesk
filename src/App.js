@@ -3,10 +3,10 @@ import './App.css';
 import Settings from './components/Settings';
 import Screen from './components/Screen';
 
-//buttons for listtext
 //fix all ui
 //try to fix keydown pause
 //add more fonts?
+//fix css for onn/off button
 
 
 function App() {
