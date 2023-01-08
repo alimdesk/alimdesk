@@ -1,8 +1,84 @@
 .list-text{
-    background-color: #d1b666;
+    background-color: white;
     border: none;
+    width: 85%;
+    font-size: 1.3rem;
+    border-radius: 5px;
 }
 .ListText{
     
 display: block;
+margin-bottom: 10px;
+
+}
+.listbutton-text{
+    display: block;
+}
+.listbutton{
+    font-size: 1.3rem;
+    background-color: black;
+    color: #D1B000;
+    border-radius: 5px;
+    padding: 1px 5px;
+}
+.listbutton:hover{
+    background-color: #D1B000;
+    color: black;
+    
+}
+.ListText:hover .listhovermenu{
+display: block;
+padding-top: 5px;
+text-align: center;
+
+
+}
+.listhovermenu{
+    display: none;
+}
+.listlabel{
+    display: inline-block;
+    padding: 2px;
+    font-size: 1.3rem;
+    margin-right: 10px;
+
+}
+.listcolor{
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border: none;
+    background-color: transparent;
+}
+.listcolor::-webkit-color-swatch{
+    border-radius: 15px;
+    border: 1px solid #D1B000;
+}
+.listsize{
+    font-size: 1.1rem;
+    border: 1px solid #D1B000;
+    border-radius: 5px;
+    color: black;
+    padding: 1px;
+}
+.listfont{
+        font-size: 1.1rem;
+    border: 1px solid #D1B000;
+    border-radius: 5px;
+    color: black;
+    padding: 1px;
+}
+.listanimation{
+    font-size: 1.1rem;
+    border: 1px solid #D1B000;
+    border-radius: 5px;
+    color: black;
+    padding: 1px;
+}
+.listduration{
+    font-size: 1.1rem;
+    border: 1px solid #D1B000;
+    border-radius: 5px;
+    color: black;
+    padding: 1px;  
 }

@@ -1,0 +1,13 @@
+.themes-list{
+    border: 1px solid #D1B000;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    padding: 1px;
+    color: black;
+}
+.themes-file{
+    color: black;
+}
+.preview{
+    margin-top: 2rem;
+}

@@ -1,0 +1,30 @@
+.settings{
+    
+    height:100%;
+    width:100%;
+    position: relative;
+
+}
+.menu{
+    height: 87%;
+    width:100%;
+    position: relative;
+
+}
+.playbutton{
+    display: block;
+    position: relative;
+    text-align: center;
+    font-size: 1.3rem;
+    padding: 2px 30px;
+    margin: auto;
+    background-color: black;
+    border: 1px solid #D1B000;
+    border-radius: 5px;
+    color: #D1B000;
+    margin-bottom: 20px;
+}
+.playbutton:hover{
+    background-color: #D1B000;
+    color: black;
+}

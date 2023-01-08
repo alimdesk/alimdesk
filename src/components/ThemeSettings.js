@@ -1,9 +1,12 @@
 import React from "react";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faImages,faPhotoFilm } from '@fortawesome/free-solid-svg-icons'
+import './ThemeSettings.css';
 
 function ThemeSettings(props) {
   let gifs =props.gifarray;
-  const previewstyle={height: "30vh",
-                      width: "30vw"
+  const previewstyle={height: "50vh",
+                      width: "50vw"
                       }
   
   const handleGif=(e)=>{
@@ -21,14 +24,20 @@ function ThemeSettings(props) {
 
   return (
 <div className="ThemeSettings">
-<select className="themes-list" onInput={handleGif} defaultValue={JSON.stringify(props.inputTheme)} >
+<label htmlFor="themes-list"  className="form-label">
+<FontAwesomeIcon icon={faImages} className="icon"/>
+<select className="themes-list"  name="themes-list" id="themes-list" onInput={handleGif} defaultValue={JSON.stringify(props.inputTheme)} >
   {gifs.map((x,i)=>{
                 return (<option key={x.name} style={{ color: "black",fontSize:20}} value={JSON.stringify(x)}>{x.name}</option>)
               })}
 </select>
-<input type="file" className="theme-file" accept="image/*,video/*" onInput={handleFile}/>
+</label>
+<label htmlFor="themes-file"  className="form-label">
+<FontAwesomeIcon icon={faPhotoFilm} className="icon"/>
+<input type="file" className="theme-file" name="theme-file" id="theme-file" accept="image/*,video/*" onInput={handleFile}/>
+</label>
+
 <div className="preview">
-  <div>Preview</div>
    {props.renderTheme(previewstyle)}
   </div>
 </div>

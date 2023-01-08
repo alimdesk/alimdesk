@@ -1,7 +1,8 @@
 import React from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faX,faPaperPlane } from '@fortawesome/free-solid-svg-icons'
+import { faClock, faForward, faFont,faPaintbrush,faStopwatch,faTextHeight } from '@fortawesome/free-solid-svg-icons'
 import TimerPreview from "./TimerPreview";
+import './TimerSettings.css';
 
 function TimerSettings(props) {
   const fonts = props.fontarray;
@@ -136,32 +137,48 @@ const handleTimer=(e)=>{
 <label htmlFor="false"  className="form-label">OFF</label>
 <input type="radio" value="false" className="form-radio" id="false" name="on/off" defaultChecked={props.timer.on===false?true:false} onChange={handleOnOff} />
 {props.timer.on===true?<form >
-            <input type="text" value={props.timer.message} className="form-timer-text" id="form-timer-text" placeholder="Enter Text Here" onChange={handleInput} />
-            <label htmlFor="form-timer"  className="form-label">Timer</label>
+            <input type="text" value={props.timer.message} className="form-text" id="form-timer-text" placeholder="Enter Text Here" onChange={handleInput} />
+            <label htmlFor="form-timer"  className="form-label">
+            <FontAwesomeIcon icon={faClock} className="icon"/>
             <input type="time" value={props.timer.target} className="form-timer" id="form-timer" onInput={handleTimer}  />
-            <label htmlFor="form-timer-color"  className="form-label">color</label>
-            <input type="color" value={props.timer.color} className="form-timer-color" id="form-timer-color" onInput={handleColor}  />
-            <label htmlFor="form-timer-size" className="form-label">Size</label>
-            <select name="size" id="form-timer-size"  className="form-timer-size"  value={props.timer.size} onInput={handleSize}>
+            </label>
+            
+            <label htmlFor="form-timer-color"  className="form-label">
+            <FontAwesomeIcon icon={faPaintbrush} className="icon"/>
+            <input type="color" value={props.timer.color} className="form-color" id="form-timer-color" onInput={handleColor}  />
+            </label>
+            
+            <label htmlFor="form-timer-size" className="form-label">
+            <FontAwesomeIcon icon={faTextHeight} className="icon"/>
+            <select name="size" id="form-timer-size"  className="form-size"  value={props.timer.size} onInput={handleSize}>
               {[...Array(71)].map((x,i)=>{
 
                   return (<option key={i} value={`${i+40}`}>{`${i+40}`}</option>)
                 
               })}
             </select>
-            <label htmlFor="font" className="form-label">Font</label>
-            <select name="font" id="font" style={{fontFamily: props.timer.font, color: "black",fontSize:20}} className="form-timer-font" value={props.timer.font} onInput={handleFont}>
+            </label>
+            
+            <label htmlFor="font" className="form-label">
+            <FontAwesomeIcon icon={faFont} className="icon"/>
+            <select name="font" id="font" style={{fontFamily: props.timer.font, color: "black",fontSize:20}} className="form-font" value={props.timer.font} onInput={handleFont}>
               {fonts.map((x,i)=>{
                 return (<option key={x} style={{fontFamily: x, color: "black",fontSize:20}} value={`${x}`}>{`${x.split(",")[0]}`}</option>)
               })}
             </select>
-            <label htmlFor="animation" className="form-label">Animation</label>
-            <select name="animation" id="animation"  className="form-timer-animation"  value={props.timer.animate} onInput={handleAnimation}>
+            </label>
+            
+            <label htmlFor="animation" className="form-label">
+            <FontAwesomeIcon icon={faForward} className="icon"/>
+            <select name="animation" id="animation"  className="form-animation"  value={props.timer.animate} onInput={handleAnimation}>
               {animates.map((x)=>{
                  return (<option key={x} value={`${x}`}>{`${x}`}</option>)
               })}
             </select>
-            <label htmlFor="duration" className="form-label">Duration</label>
+            </label>
+            
+            <label htmlFor="duration" className="form-label">
+            <FontAwesomeIcon icon={faStopwatch} className="icon"/>
             <select name="duration" id="duration"  className="form-duration" value={props.timer.duration} onInput={handleDuration}>
               {[...Array(10)].map((x,i)=>{
 
@@ -169,6 +186,8 @@ const handleTimer=(e)=>{
                 
               })}
             </select>
+            </label>
+            
             <TimerPreview timer={props.timer}/>
         </form>:""}
               

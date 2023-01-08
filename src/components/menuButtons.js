@@ -1,4 +1,5 @@
 import React from "react";
+import './menuButtons.css';
 
 function MenuButtons(props) {
   const handleClick=(e)=>{
@@ -6,10 +7,10 @@ function MenuButtons(props) {
   }
   return (
 
-<div>
-  <input type="button" className="menu-text" value="Text" onClick={handleClick}/>
-  <input type="button" className="menu-timer" value="Timer" onClick={handleClick}/>
-  <input type="button" className="menu-theme" value="Theme" onClick={handleClick}/>
+<div className="menubuttons">
+  <input type="button" className="menu-b" value="Text" onClick={handleClick}/>
+  <input type="button" className="menu-b" value="Timer" onClick={handleClick}/>
+  <input type="button" className="menu-b" value="Theme" onClick={handleClick}/>
 </div>
   );
 }

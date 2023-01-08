@@ -1,8 +1,11 @@
 import React from "react";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faPlay } from '@fortawesome/free-solid-svg-icons'
 import TextSettings from "./TextSettings";
 import ThemeSettings from "./ThemeSettings";
 import TimerSettings from "./TimerSettings";
 import MenuButtons from "./menuButtons";
+import './Settings.css';
 
 function Settings(props) {
 
@@ -40,12 +43,11 @@ function Settings(props) {
       renderTheme={props.renderTheme}
       gifarray={props.gifarray}
       />}
-      <button onClick={props.playOrPause}>
-        Play
-      </button>
       
-
     </div>
+    <button className="playbutton" onClick={props.playOrPause}>
+      <FontAwesomeIcon icon={faPlay}/>
+      </button>
 </div>
   );
 }

@@ -1,0 +1,136 @@
+.TextSettings{
+    height: 85%;
+    width: 100%;
+    user-select: none;
+}
+.textsettingsform{
+    display: block;
+    width: 100%;
+    margin: auto;
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+    padding: 10px;
+    
+    
+}
+.ListContainer{
+    margin: auto;
+    display: block;
+    width: 60%;
+    border: 1px solid #D1B000;
+    padding: 10px;
+    border-radius: 10px;
+    overflow-y: scroll;
+    max-height: 60%;
+
+}
+.ListContainer::-webkit-scrollbar{
+    width:5px;
+}
+.ListContainer::-webkit-scrollbar-track{
+    background-color: black;
+    border-radius: 10px;
+}
+.ListContainer::-webkit-scrollbar-thumb{
+    
+    background-color: #D1B000;
+    border-radius: 10px;
+}
+.form-text{
+    margin: auto;
+    display: block;
+    width: 60%;
+    padding: 5px;
+    font-size: 1.3rem;
+    margin-bottom: 5px;
+    border-radius: 5px;
+    border: 1px solid #D1B000;
+
+}
+.form-label{
+    display: inline-block;
+    font-size: 1.3rem; 
+    border-radius: 8%;
+    
+    padding: 5px;
+    margin-left: 5px;
+    
+
+}
+.icon{
+    padding-right: 5px;
+    display: inline-block;
+    color: #D1B000;
+}
+.form-color{
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border: none;
+    background-color: transparent;
+    
+    
+
+}
+.form-color::-webkit-color-swatch{
+    border-radius: 15px;
+    border: 1px solid #D1B000;
+}
+.form-size{
+    font-size: 1.2rem;
+    border: 1px solid #D1B000;
+    border-radius: 5px;
+    color: black;
+    padding: 1px;
+
+}
+.form-font{
+    border: 1px solid #D1B000;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    padding: 1px;
+    color: black;
+    
+
+}
+.form-animation{
+    border: 1px solid #D1B000;
+    border-radius: 5px;
+    padding: 1px;
+    font-size: 1.2rem;
+    color: black;
+    
+
+}
+.form-duration{
+    border: 1px solid #D1B000;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    color: black;
+    padding: 1px;
+    
+
+}
+.form-button{
+    display: block;
+    margin: auto;
+    margin-top: 1rem;
+    margin-bottom: 5px;
+    font-size: 1.2rem;
+    background-color: white;
+    border-radius: 5px;
+    border: 1px solid #D1B000;
+    color: black;
+}
+.form-button:hover{
+    background-color: #D1B000;
+
+}
+.form-button:hover .icon{
+    color: black;
+
+} 
+.button-text{
+    display: inline-block;
+    margin-right: 5px;
+}

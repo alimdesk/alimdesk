@@ -1,7 +1,8 @@
 import React from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faX,faPaperPlane } from '@fortawesome/free-solid-svg-icons'
+import { faFont,faForward,faPaintbrush,faPaperPlane,faStopwatch,faTextHeight } from '@fortawesome/free-solid-svg-icons'
 import ListText from "./ListText";
+import './TextSettings.css';
 
 
 function TextSettings(props) {
@@ -47,22 +48,18 @@ const submitLine=(e)=>{
 }
 
   return (
-<div className="TextSettings" style={{userSelect:"none"}}>
-  <div>
-    {props.lines.map((line)=>{
-      return (<ListText
-      key={line.id}
-      line={line}
-      list={props.lines}
-      setLines={props.setLines}
-      />)
-    })}
-  </div>
-<form >
+<div className="TextSettings">
+  
+  <div className="textsettingsform">
+  <form >
             <input type="text" value={props.inputText} className="form-text" id="form-text" placeholder="Enter Text Here" onChange={handleInput} />
-            <label htmlFor="color"  className="form-label">color</label>
-            <input type="color" value={props.inputColor} className="form-color" id="form-time" onInput={handleColor}  />
-            <label htmlFor="size" className="form-label">Size</label>
+            <label htmlFor="color"  className="form-label">
+              <FontAwesomeIcon icon={faPaintbrush} className="icon"/>
+              <input type="color" value={props.inputColor} className="form-color" id="form-time" onInput={handleColor}  />
+            </label>
+            
+            <label htmlFor="size" className="form-label">
+            <FontAwesomeIcon icon={faTextHeight} className="icon"/>
             <select name="size" id="size"  className="form-size" value={props.inputSize} onInput={handleSize}>
               {[...Array(71)].map((x,i)=>{
 
@@ -70,19 +67,28 @@ const submitLine=(e)=>{
                 
               })}
             </select>
-            <label htmlFor="font" className="form-label">Font</label>
-            <select name="font" id="font" style={{fontFamily: props.inputFont, color: "black",fontSize:20}} className="form-font" value={props.inputFont} onInput={handleFont}>
+            </label>
+            
+            <label htmlFor="font" className="form-label">
+            <FontAwesomeIcon icon={faFont} className="icon"/>
+            <select name="font" id="font" style={{fontFamily: props.inputFont}} className="form-font" value={props.inputFont} onInput={handleFont}>
               {fonts.map((x,i)=>{
                 return (<option key={x} style={{fontFamily: x, color: "black",fontSize:20}} value={`${x}`}>{`${x.split(",")[0]}`}</option>)
               })}
             </select>
-            <label htmlFor="animation" className="form-label">Animation</label>
+            </label>
+            
+            <label htmlFor="animation" className="form-label">
+            <FontAwesomeIcon icon={faForward} className="icon"/>
             <select name="animation" id="animation"  className="form-animation"  value={props.inputAnim} onInput={handleAnimation}>
               {animates.map((x)=>{
                  return (<option key={x} value={`${x}`}>{`${x}`}</option>)
               })}
             </select>
-            <label htmlFor="duration" className="form-label">Duration</label>
+            </label>
+            
+            <label htmlFor="duration" className="form-label">
+            <FontAwesomeIcon icon={faStopwatch} className="icon"/>
             <select name="duration" id="duration"  className="form-duration" value={props.inputDuration} onInput={handleDuration}>
               {[...Array(10)].map((x,i)=>{
 
@@ -90,11 +96,27 @@ const submitLine=(e)=>{
                 
               })}
             </select>
+            </label>
+            
             <button className="form-button" type="submit" onClick={submitLine}> 
                 <span className="button-text">Submit</span>
-                <FontAwesomeIcon icon={faPaperPlane} /> 
+                <FontAwesomeIcon icon={faPaperPlane} className="icon"/> 
             </button>
         </form>
+  </div>
+  <div className="ListContainer">
+    {props.lines.map((line)=>{
+      return (<ListText
+      key={line.id}
+      line={line}
+      list={props.lines}
+      setLines={props.setLines}
+      fontarray={props.fontarray}
+      animarray={props.animarray}
+      />)
+    })}
+  </div>
+
 </div>
   );
 }

@@ -1,13 +1,13 @@
 import React from "react";
+import './TimerPreview.css';
+
 
 
 function TimerPreview(props) {
   const style ={color: props.timer.color,
     fontFamily: props.timer.font,
-    fontSize: "2rem",
     animationName: props.timer.animate,
-    animationDuration: props.timer.duration,
-    animationIterationCount: "infinite"
+    animationDuration: props.timer.duration
   }
 
   return (
