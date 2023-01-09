@@ -1,25 +1,37 @@
 .list-text{
     background-color: white;
     border: none;
-    width: 85%;
+    width: 90%;
     font-size: 1.3rem;
     border-radius: 5px;
+    display: inline-block;
+    margin-right: 5px;
+    padding: 2px 5px;
 }
 .ListText{
     
 display: block;
-margin-bottom: 10px;
+padding:  5px 0 10px 0;
 
+border-radius: 5px;
+margin-bottom: 5px;
+animation: appear 0.5s linear 1;
+
+}
+.ListText:hover{
+    border: 1px solid #D1B000;
 }
 .listbutton-text{
     display: block;
+    width: 100%;
 }
 .listbutton{
     font-size: 1.3rem;
     background-color: black;
     color: #D1B000;
     border-radius: 5px;
-    padding: 1px 5px;
+    padding: 2px 5px 0 5px;
+    display: inline-block;
 }
 .listbutton:hover{
     background-color: #D1B000;
@@ -31,10 +43,10 @@ display: block;
 padding-top: 5px;
 text-align: center;
 
-
 }
 .listhovermenu{
     display: none;
+
 }
 .listlabel{
     display: inline-block;
@@ -81,4 +93,16 @@ text-align: center;
     border-radius: 5px;
     color: black;
     padding: 1px;  
+}
+@keyframes appear{
+    0% {
+        color:#D1B000;
+        background-color: #D1B000;
+    }
+
+    100% {
+        color:black;
+        background-color: black;
+    }
+
 }

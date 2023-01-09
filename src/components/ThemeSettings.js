@@ -6,7 +6,9 @@ import './ThemeSettings.css';
 function ThemeSettings(props) {
   let gifs =props.gifarray;
   const previewstyle={height: "50vh",
-                      width: "50vw"
+                      width: "50vw",
+                      border: "1px solid #D1B000",
+                      borderRadius: "5px"
                       }
   
   const handleGif=(e)=>{

@@ -7,6 +7,37 @@ import './TimerSettings.css';
 function TimerSettings(props) {
   const fonts = props.fontarray;
   const animates = props.animarray;
+  const handleOn=()=>{
+    if(props.timer.on!==true){
+      props.setTimer({
+        message: props.timer.message,
+        target: props.timer.target,
+        color: props.timer.color,
+        font: props.timer.font,
+        size: props.timer.size,
+        animate: props.timer.animate,
+        duration: props.timer.duration,
+        on: true
+      });
+    }
+    
+  }
+  const handleOff=()=>{
+    if(props.timer.on!==false){
+      props.setTimer({
+        message: props.timer.message,
+        target: props.timer.target,
+        color: props.timer.color,
+        font: props.timer.font,
+        size: props.timer.size,
+        animate: props.timer.animate,
+        duration: props.timer.duration,
+        on: false
+      });
+    }
+    
+  }
+  
   const handleOnOff=(e)=>{
     if(e.target.value==="true"){
       props.setTimer({
@@ -129,13 +160,36 @@ const handleTimer=(e)=>{
   }
 
 }
+const onoffstyle= {
+  backgroundColor: props.timer.on===true?"#D1B000":"black",
+  //justifyContent: props.timer.on===true?"flex-end":"flex-start"
+}
+const sliderstyle={
+  backgroundColor: props.timer.on===true?"black":"#D1B000",
+  left: props.timer.on===true?"":0,
+  right: props.timer.on===true?0:""
+}
 
   return (
 <div className="TimeSettings">
-<label htmlFor="true"  className="form-label">ON</label>
-<input type="radio" value="true" className="form-radio" id="true"  name="on/off" defaultChecked={props.timer.on===true?true:false} onChange={handleOnOff} />
-<label htmlFor="false"  className="form-label">OFF</label>
-<input type="radio" value="false" className="form-radio" id="false" name="on/off" defaultChecked={props.timer.on===false?true:false} onChange={handleOnOff} />
+  
+  <div className="onoffcontainer">
+  <div className="visuals">
+  <div className="onoff" style={onoffstyle}>
+  <div className="slider" style={sliderstyle}></div>
+  </div>
+  </div>
+  <span className="onofftext off"onClick={handleOff}>OFF</span>
+  <div className="onoffdiv">
+    <div className="onoffbutton" onClick={handleOff}></div>
+    <div className="onoffbutton"onClick={handleOn}></div>
+  </div>
+  <span className="onofftext on"onClick={handleOn}>ON</span>
+  
+  </div>
+  
+  
+
 {props.timer.on===true?<form >
             <input type="text" value={props.timer.message} className="form-text" id="form-timer-text" placeholder="Enter Text Here" onChange={handleInput} />
             <label htmlFor="form-timer"  className="form-label">

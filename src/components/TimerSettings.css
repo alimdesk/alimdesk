@@ -5,3 +5,102 @@
     padding: 1px;
     color: black;
 }
+.onoff{
+margin: auto;
+display: flex;
+width: calc((2 * 1.3rem) + 1.5rem);
+text-align: center;
+height:1.3rem;
+background-color: white;
+border-radius: 100px;
+position: relative;
+border: 1px solid #D1B000;
+
+transition: background-color 0.5s linear;
+
+}
+.onofflabel{
+    border: 1px solid red;
+
+
+
+
+}
+
+.form-radio{
+    visibility: hidden;
+}
+.slider{
+    user-select: none;
+    position: absolute;
+    width:1.3rem;
+    height:1.3rem;
+    z-index: 1;
+    border-radius: 100px;
+    display: block;
+    transition: background-color 0.2s linear;
+    
+    
+    
+    
+}
+.onoffcontainer{
+    display: inline-block;
+    position: relative;
+    margin-top: 1.3rem;
+    margin-bottom: 1.3rem;
+
+}
+.onofftext{
+    display: inline-block;
+    top: 0;
+    position: absolute;
+    padding-top: 5px;
+    user-select: none;
+    
+    
+}
+.off{
+    right: 105%;
+}
+.on{
+    left:105%;
+}
+.radios{
+    position: relative;
+    display: none;
+    border: 1px solid blue;
+    z-index: 2;
+    width: calc((2 * 1.3rem) + 1.6rem);
+    height: 1.3rem;
+    transform: translateY(-100%);
+    text-align:center;
+}
+.visuals{
+    position: relative;
+    margin: auto;
+    display: block;
+    
+    max-width: fit-content;
+}
+.onoffdiv{
+    margin: auto;
+        position: absolute;
+        display: inline-block;
+        z-index: 2;
+        width: calc((2 * 1.3rem) + 1.6rem);
+        height: 1.5rem;
+        left:0;
+        top: 0;
+        text-align:center;
+        
+}
+.onoffbutton{
+    position: relative;
+    display: inline-block;
+    width: 50%;
+    height:100%;
+    z-index: 2;
+    user-select: none;
+
+}

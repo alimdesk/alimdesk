@@ -7,10 +7,7 @@
     text-align: center;
     font-size: 1.3rem;
     padding: 5px 10px;
-    background-color: black;
-    border: 1px solid #D1B000;
     border-radius: 5px;
-    color: white;
     margin-left: 10px;
     font-weight: bold;
 
@@ -18,4 +15,16 @@
 .menu-b:hover{
     background-color: #D1B000;
     color: black;
+}
+.checked-b{
+    background-color: #D1B000;
+    color: black;
+    outline: 1px solid #D1B000;
+    border: 1px solid black;
+
+}
+.unchecked-b{
+    background-color: black;
+    border: 1px solid #D1B000;
+    color: white;
 }

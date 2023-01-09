@@ -104,7 +104,7 @@ const submitLine=(e)=>{
             </button>
         </form>
   </div>
-  <div className="ListContainer">
+  <div className="ListContainer" style={{border:props.lines.length>0?"1px solid #D1B000":""}}>
     {props.lines.map((line)=>{
       return (<ListText
       key={line.id}
