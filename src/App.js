@@ -4,10 +4,6 @@ import Settings from './components/Settings';
 import Screen from './components/Screen';
 
 
-//add more fonts?
-
-
-
 
 function App() {
   const fontarray = [
@@ -45,11 +41,12 @@ function App() {
     "Scroll"
   ]
   const gifarray=[
+    {name: "cross",src: "/alimdesk/images/cross.gif",type: "image/gif"},
     {name: "blue-shift",src: "/alimdesk/images/blue-shift.gif",type: "image/gif"},
     {name: "galaxy",src: "/alimdesk/images/galaxy.gif",type: "image/gif"},
     {name: "golden-light",src: "/alimdesk/images/golden-light.gif",type: "image/gif"},
-    {name: "sparkling-stars",src: "/alimdesk/images/sparkling-stars.gif",type: "image/gif"},
-    {name: "cross",src: "/alimdesk/images/cross.gif",type: "image/gif"}
+    {name: "sparkling-stars",src: "/alimdesk/images/sparkling-stars.gif",type: "image/gif"}
+    
   ]
   const [pause, setPause] = useState(true);  
   const [inputText, setInputText] = useState("");
