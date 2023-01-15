@@ -1,13 +1,13 @@
 .TextSettings{
     height: 85%;
     width: 100%;
+
     user-select: none;
 }
 .textsettingsform{
     display: block;
     width: 100%;
     margin: auto;
-    margin-top: 1rem;
     margin-bottom: 0.5rem;
     padding: 10px;
     
@@ -16,11 +16,11 @@
 .ListContainer{
     margin: auto;
     display: block;
-    width: 60%;
+    width: 63%;
     padding: 10px;
     border-radius: 10px;
     overflow-y: scroll;
-    max-height: 60%;
+    max-height: 62%;
 
 }
 .ListContainer::-webkit-scrollbar{
