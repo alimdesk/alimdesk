@@ -10,27 +10,35 @@ import Screen from './components/Screen';
 
 
 function App() {
-  const fontarray = ["Helvetica, sans-serif",
-   "Arial, sans-serif",
-   "Arial Black, sans-serif",
-   "Verdana, sans-serif",
-   "Tahoma, sans-serif",
-   "Trebuchet MS, sans-serif",
-   "Impact, sans-serif",
-   "Gill Sans, sans-serif",
-   "Times New Roman, serif",
-   "Georgia, serif",
-   "Palatino, serif",
-   "Baskerville, serif",
-   "Andalé Mono, monospace",
-   "Courier, monospace",
-   "Lucida, monospace",
-   "Monaco, monospace",
-   "Bradley Hand, cursive",
-   "Brush Script MT, cursive",
-   "Comic Sans MS, cursive",
-   "Luminari, fantasy"
-  ]
+  const fontarray = [
+    "Andalé Mono, monospace",
+    "Arial Black, sans-serif",
+    "Arial, sans-serif",
+    "Baskerville, serif",
+    "Bigshot One, cursive",
+    "Bradley Hand, cursive",
+    "Brush Script MT, cursive",
+    "Bungee Shade, cursive",
+    "Cinzel, serif",
+    "Comic Sans MS, cursive",
+    "Courgette, cursive",
+    "Courier, monospace",
+    "Georgia, serif",
+    "Gill Sans, sans-serif",
+    "Helvetica, sans-serif",
+    "Impact, sans-serif",
+    "Lucida, monospace",
+    "Luminari, fantasy",
+    "Monaco, monospace",
+    "Palatino, serif",
+    "Tahoma, sans-serif",
+    "Tangerine, cursive",
+    "Times New Roman, serif",
+    "Trebuchet MS, sans-serif",
+    "Verdana, sans-serif",
+    "Yeseva One, cursive"
+]
+
   const animarray=[
     "Slide",
     "Fade",
