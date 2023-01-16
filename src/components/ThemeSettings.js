@@ -34,7 +34,7 @@ function ThemeSettings(props) {
               })}
 </select>
 </label>
-<label htmlFor="themes-file"  className="form-label">
+<label htmlFor="theme-file"  className="form-label">
 <FontAwesomeIcon icon={faPhotoFilm} className="icon"/>
 <input type="file" className="theme-file" name="theme-file" id="theme-file" accept="image/*,video/*" onInput={handleFile}/>
 </label>

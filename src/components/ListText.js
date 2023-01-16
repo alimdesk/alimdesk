@@ -95,9 +95,9 @@ const changeDuration=(e)=>{
 
   <label htmlFor="listfont" className="listlabel">
   <FontAwesomeIcon icon={faFont} className="icon"/>
-  <select name="listfont" id="listfont" style={{fontFamily: props.line.font, color: "black",fontSize:20}} className="listfont" value={props.line.font} onInput={changeFont}>
+  <select name="listfont" id="listfont" style={{fontFamily: props.line.font, color: "black",fontSize: props.line.font=="Bungee Shade, cursive"?12:props.line.font=="Tangerine, cursive"?25:20}} className="listfont" value={props.line.font} onInput={changeFont}>
               {fonts.map((x,i)=>{
-                return (<option key={x} style={{fontFamily: x, color: "black",fontSize:20}} value={`${x}`}>{`${x.split(",")[0]}`}</option>)
+                return (<option key={x} style={{fontFamily: x, color: "black",fontSize: x=="Bungee Shade, cursive"?12:x=="Tangerine, cursive"?25:20}} value={`${x}`}>{`${x.split(",")[0]}`}</option>)
               })}
   </select>
   </label>

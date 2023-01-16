@@ -71,9 +71,9 @@ const submitLine=(e)=>{
             
             <label htmlFor="font" className="form-label">
             <FontAwesomeIcon icon={faFont} className="icon"/>
-            <select name="font" id="font" style={{fontFamily: props.inputFont}} className="form-font" value={props.inputFont} onInput={handleFont}>
+            <select name="font" id="font" style={{fontFamily: props.inputFont,fontSize: props.inputFont=="Bungee Shade, cursive"?12:props.inputFont=="Tangerine, cursive"?25:20}} className="form-font" value={props.inputFont} onInput={handleFont}>
               {fonts.map((x,i)=>{
-                return (<option key={x} style={{fontFamily: x, color: "black",fontSize:20}} value={`${x}`}>{`${x.split(",")[0]}`}</option>)
+                return (<option key={x} style={{fontFamily: x, color: "black",fontSize: x=="Bungee Shade, cursive"?12:x=="Tangerine, cursive"?25:20}} value={`${x}`}>{`${x.split(",")[0]}`}</option>)
               })}
             </select>
             </label>

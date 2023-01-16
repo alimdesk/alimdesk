@@ -19,7 +19,7 @@ function ScreenTimer(props) {
     let currhr = currdate.getHours();
     let currmin = ((currdate.getMinutes())<10? `0${currdate.getMinutes()}`:`${currdate.getMinutes()}`);
     let currtime = `${currhr}:${currmin}`;
-    const target = (timeToInt(currtime)-timeToInt(props.timer.target))>=145?new Date(currdate.getFullYear(),currdate.getMonth(),currdate.getDate()+1,tmarray[0],tmarray[1]):new Date(currdate.getFullYear(),currdate.getMonth(),currdate.getDate(),tmarray[0],tmarray[1]);
+    const target = (timeToInt(currtime)-timeToInt(props.timer.target))>=20?new Date(currdate.getFullYear(),currdate.getMonth(),currdate.getDate()+1,tmarray[0],tmarray[1]):new Date(currdate.getFullYear(),currdate.getMonth(),currdate.getDate(),tmarray[0],tmarray[1]);
     let difftime = target - currdate;
     //console.log((timeToInt(currtime)-timeToInt(props.timer.target)))
     if(difftime<=0){
@@ -58,7 +58,7 @@ function ScreenTimer(props) {
 
   const style = {color: props.timer.color,
     fontFamily: props.timer.font,
-    fontSize: props.timer.size,
+    fontSize: props.timer.font=="Tangerine, cursive"?Math.floor(props.timer.size* 1.3):props.timer.size,
     visibility: props.lines.length===0||last10seconds()?"visible":"",
     animationName: props.lines.length===0||last10seconds()?"":props.timer.animate,
     animationDuration: props.timer.duration,

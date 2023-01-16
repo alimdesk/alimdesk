@@ -9,14 +9,14 @@
     padding: 2px 5px;
 }
 .ListText{
-    
+position: relative;
 display: block;
 padding:  5px 0 10px 0;
 width: 98%;
 border-radius: 5px;
 margin-bottom: 5px;
 animation: appear 0.5s linear 1;
-transition: border 0.5s linear;
+
 
 }
 .ListText:hover{
@@ -26,6 +26,7 @@ transition: border 0.5s linear;
     display: block;
     width: 100%;
     padding-bottom: 3px;
+    position: relative;
 }
 .listbutton{
     font-size: 1.3rem;
@@ -45,6 +46,10 @@ display: block;
 padding-top: 5px;
 text-align: center;
 
+
+
+
+
 }
 .ListText:hover .listbutton-text{
     padding-bottom: 0;
@@ -52,6 +57,9 @@ text-align: center;
     }
 .listhovermenu{
     display: none;
+    position: relative;
+
+
 
 }
 .listlabel{

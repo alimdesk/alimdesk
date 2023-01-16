@@ -5,8 +5,9 @@
     padding: 1px;
     color: black;
 }
-.themes-file{
-    color: black;
+.theme-file{
+    color: white;
+    font-size: 17px;
 }
 .preview{
     margin-top: 2rem;
