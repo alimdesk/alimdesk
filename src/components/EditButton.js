@@ -6,7 +6,7 @@ import "./EditButton.css";
 function EditButton(props) {
 
   return (
-<div className="EditButton"onClick={props.playOrPause} onKeyUp={props.playOrPause}>
+<div className="EditButton"onClick={props.playOrPause} onKeyUp={props.playOrPause} role="button">
   <div className="inneredit" >
   <FontAwesomeIcon icon={faPause} /> 
   </div>

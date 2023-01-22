@@ -5,4 +5,7 @@ user-select: none;
 visibility: hidden;
 word-wrap: break-word;
 animation-timing-function: linear;
+padding: 0px, 20px;
+overflow: hidden;
+height: 100%;
 }

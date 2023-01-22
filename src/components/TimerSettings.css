@@ -20,17 +20,7 @@ border: 1px solid #D1B000;
 transition: background-color 0.5s linear;
 
 }
-.onofflabel{
-    border: 1px solid red;
 
-
-
-
-}
-
-.form-radio{
-    visibility: hidden;
-}
 .slider{
     user-select: none;
     position: absolute;
@@ -60,6 +50,7 @@ transition: background-color 0.5s linear;
     user-select: none;
     
     
+    
 }
 .off{
     right: 105%;
@@ -67,16 +58,7 @@ transition: background-color 0.5s linear;
 .on{
     left:105%;
 }
-.radios{
-    position: relative;
-    display: none;
-    border: 1px solid blue;
-    z-index: 2;
-    width: calc((2 * 1.3rem) + 1.6rem);
-    height: 1.3rem;
-    transform: translateY(-100%);
-    text-align:center;
-}
+
 .visuals{
     position: relative;
     margin: auto;
@@ -103,5 +85,4 @@ transition: background-color 0.5s linear;
     height:100%;
     z-index: 2;
     user-select: none;
-
 }

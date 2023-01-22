@@ -6,14 +6,18 @@ import './TimerPreview.css';
 function TimerPreview(props) {
   const style ={color: props.timer.color,
     fontFamily: props.timer.font,
+    fontSize: props.timer.font=="Tangerine, cursive"?"calc(2rem * 1.5)":"2rem",
     animationName: props.timer.animate,
     animationDuration: props.timer.duration
   }
 
   return (
-<div className="TimerPreview" style={style}>
-<div>{props.timer.message}</div>
-<div>06:24:17</div>
+<div className="TimerPreview" >
+  <div className="timerpreviewtext"style={style}>
+    <div>{props.timer.message}</div>
+    <div>06:24:17</div>
+  </div>
+
 </div>
   );
 }

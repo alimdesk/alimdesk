@@ -161,8 +161,8 @@ const handleTimer=(e)=>{
 
 }
 const onoffstyle= {
-  backgroundColor: props.timer.on===true?"#D1B000":"black",
-  //justifyContent: props.timer.on===true?"flex-end":"flex-start"
+  backgroundColor: props.timer.on===true?"#D1B000":"black"
+  
 }
 const sliderstyle={
   backgroundColor: props.timer.on===true?"black":"#D1B000",
@@ -179,12 +179,12 @@ const sliderstyle={
   <div className="slider" style={sliderstyle}></div>
   </div>
   </div>
-  <span className="onofftext off"onClick={handleOff}>OFF</span>
+  <span className="onofftext off"onClick={handleOff} role="button">OFF</span>
   <div className="onoffdiv">
-    <div className="onoffbutton" onClick={handleOff}></div>
-    <div className="onoffbutton"onClick={handleOn}></div>
+    <div className="onoffbutton" onClick={handleOff} role="button"></div>
+    <div className="onoffbutton"onClick={handleOn} role="button"></div>
   </div>
-  <span className="onofftext on"onClick={handleOn}>ON</span>
+  <span className="onofftext on"onClick={handleOn} role="button">ON</span>
   
   </div>
   
@@ -234,7 +234,7 @@ const sliderstyle={
             <label htmlFor="duration" className="form-label">
             <FontAwesomeIcon icon={faStopwatch} className="icon"/>
             <select name="duration" id="duration"  className="form-duration" value={props.timer.duration} onInput={handleDuration}>
-              {[...Array(10)].map((x,i)=>{
+              {[...Array(15)].map((x,i)=>{
 
                   return (<option key={i} value={`${i+1}s`}>{`${i+1} seconds`}</option>)
                 

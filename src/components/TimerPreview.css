@@ -1,5 +1,24 @@
 .TimerPreview{
+    position: relative;
     animation-iteration-count: infinite;
-    font-size: 2rem;
+    user-select: none;
+    margin: auto;
     margin-top: 2rem;
+    overflow-y: hidden;
+    border: 1px solid #D1B000;
+    border-radius: 5px;
+    width: 65%;
+
+    text-align: center;
+    overflow-x: hidden;
+    
+    
+}
+.timerpreviewtext{
+    animation-iteration-count: infinite;
+    padding: 1rem;
+    position: relative;
+   
+    
+
 }

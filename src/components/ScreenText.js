@@ -4,7 +4,9 @@ import './ScreenText.css';
 
 function ScreenText(props) {
 
-  const style = {color: props.element.color,
+
+
+   const style = {color: props.element.color,
                  fontFamily: props.element.font,
                  fontSize: props.element.font=="Tangerine, cursive"?Math.floor(props.element.size* 1.3):props.element.size,
                  visibility: props.lines.length===1&&props.timer.on===false?"visible":"",
@@ -26,7 +28,7 @@ function ScreenText(props) {
   }
 
   return (
-<div className='ScreenText' style={style} onAnimationEnd={nextAnimation}>{props.element.text}</div>
+<div className='ScreenText' style={style} onAnimationEnd={nextAnimation}>{props.element.text} </div>
   );
 }
 export default ScreenText;

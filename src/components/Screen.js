@@ -35,12 +35,21 @@ function Screen(props) {
         )
     }
   }
+  const clickThruAnimation=()=>{
+    if(props.lines.length===0){
+      props.setcrntScrRender(1);
+    }else if(props.crntScrRender<props.lines.length-1 || (props.crntScrRender===props.lines.length-1 && props.timer.on===true)){
+      props.setcrntScrRender(props.crntScrRender + 1);
+    }else{
+      props.setcrntScrRender(0);
+    }
+  }
 
   return (
 <div className="Screen" >
 <EditButton playOrPause={props.playOrPause}/>
     {props.renderTheme(backgroundstyle)}
-    <div className="content">
+    <div className="content" onClick={clickThruAnimation}>
       {renderOnScreen(props.crntScrRender)}
     </div>
 
