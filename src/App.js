@@ -1,4 +1,4 @@
-import { useState, useEffect,useRef } from 'react';
+import { useState, useEffect} from 'react';
 import './App.css';
 import Settings from './components/Settings';
 import Screen from './components/Screen';
@@ -61,7 +61,7 @@ function App() {
   const [currentTime, setCurrentTime] = useState(Date.now());
   const [lines, setLines] = useState([]);
   const [timer, setTimer] = useState({message: "",target: "11:00",color:"#FFFFFF",font: fontarray[0],size: 40,animate: animarray[1],duration: "5s", on: true}); 
-  const ref = useRef(null);
+  
   const playOrPause =()=>{
     if(lines.length===0){
       setcrntScrRender(1);
@@ -154,10 +154,9 @@ function App() {
 
   },[timer])
 
-  const keypressResume=(e)=>{
-  }
 
-  //tabIndex={1} onKeyDown={keypressResume} ref={ref}
+
+  
   return (
     <div className="App" >
       {pause===true?
