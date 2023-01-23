@@ -1,4 +1,14 @@
-
+.TimeSettings{
+    height: 85%;
+    width: 100%;
+    position: relative;
+    user-select: none;
+}
+.timersettingform{
+    position: relative;
+    height: 100%;
+    width: 100%;
+}
 .form-timer{
     border: 1px solid #D1B000;
     border-radius: 5px;

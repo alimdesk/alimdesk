@@ -90,7 +90,7 @@ const submitLine=(e)=>{
             <label htmlFor="duration" className="form-label">
             <FontAwesomeIcon icon={faStopwatch} className="icon"/>
             <select name="duration" id="duration"  className="form-duration" value={props.inputDuration} onInput={handleDuration}>
-              {[...Array(15)].map((x,i)=>{
+              {[...Array(20)].map((x,i)=>{
 
                   return (<option key={i} value={`${i+1}s`}>{`${i+1} seconds`}</option>)
                 

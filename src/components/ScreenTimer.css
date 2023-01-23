@@ -1,8 +1,22 @@
 .ScreenTimer{
-    position: relative;
-    top: 30%;
-    visibility: hidden;
-    user-select: none;
-    animation-timing-function: linear;
-    padding: 0px, 20px;
-    }
+margin: 0;
+position: absolute;
+top: 50%;
+left: 50%;
+margin-right: -50%;
+transform: translate(-50%, -50%);
+display: block;
+user-select: none;
+visibility: hidden;
+word-wrap: break-word;
+animation-timing-function: linear;
+
+}
+.ScreenTimer-text{
+    display: block;
+    margin: auto;
+}
+.ScreenTimer-timer{
+    display: block;
+    margin: auto;
+}

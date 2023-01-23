@@ -113,7 +113,7 @@ const changeDuration=(e)=>{
   <label htmlFor="listduration" className="listlabel">
   <FontAwesomeIcon icon={faStopwatch} className="icon"/>
   <select name="listduration" id="listduration"  className="listduration" value={props.line.duration} onInput={changeDuration}>
-              {[...Array(15)].map((x,i)=>{
+              {[...Array(20)].map((x,i)=>{
 
                   return (<option key={i} value={`${i+1}s`}>{`${i+1} seconds`}</option>)
                 

@@ -6,12 +6,12 @@
         opacity: 0;
     }
 
-    20%{
+    10%{
         visibility: visible;
         opacity: 1;
     }
 
-    80% {
+    90% {
         visibility: visible;
         opacity: 1;
     }
@@ -25,40 +25,108 @@
     0% {
         visibility: visible;
         opacity: 0;
-        transform: translate(-100%);
+        transform: translate(-100%,-50%);
     }
 
-    20%{
+    10%{
         visibility: visible;
         opacity: 1;
-        transform: translate(0);
+        transform: translate(-50%,-50%);
     }
 
-    80% {
+    90% {
         visibility: visible;
         visibility: visible;
         opacity: 1;
-        transform: translate(0);
+        transform: translate(-50%,-50%);
     }
     100% {
         visibility: visible;
         opacity: 0;
-        transform: translate(100%);
+        transform: translate(100%,-50%);
     }
 
 }
 @keyframes Scroll{
     0% {
         visibility: visible;
+        transform: translate(-50%,100vh);
+    }
+
+    10%{
+        visibility: visible;
+        transform: translate(-50%,-50%);
+    }
+
+    90% {
+        visibility: visible;
+        transform: translate(-50%,-50%);
+    }
+    100% {
+        visibility: visible;
+        transform: translate(-50%,-100vh);
+    }
+
+}
+@keyframes Fadepreview{
+    0% {
+        visibility: visible;
+        opacity: 0;
+    }
+
+    10%{
+        visibility: visible;
+        opacity: 1;
+    }
+
+    90% {
+        visibility: visible;
+        opacity: 1;
+    }
+    100% {
+        visibility: visible;
+        opacity: 0;
+    }
+
+}
+@keyframes Slidepreview{
+    0% {
+        visibility: visible;
+        opacity: 0;
+        transform: translate(-100%,0);
+    }
+
+    10%{
+        visibility: visible;
+        opacity: 1;
+        transform: translate(0,0);
+    }
+
+    90% {
+        visibility: visible;
+        visibility: visible;
+        opacity: 1;
+        transform: translate(0,0);
+    }
+    100% {
+        visibility: visible;
+        opacity: 0;
+        transform: translate(100%,0);
+    }
+
+}
+@keyframes Scrollpreview{
+    0% {
+        visibility: visible;
         transform: translate(0,100vh);
     }
 
-    20%{
+    10%{
         visibility: visible;
         transform: translate(0,0);
     }
 
-    80% {
+    90% {
         visibility: visible;
         transform: translate(0,0);
     }

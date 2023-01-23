@@ -8,9 +8,11 @@
     border: 1px solid #D1B000;
     border-radius: 5px;
     width: 65%;
-
+    max-height:48vh;
     text-align: center;
     overflow-x: hidden;
+    
+    
     
     
 }

@@ -5,6 +5,7 @@ import EditButton from "./EditButton";
 import './Screen.css';
 
 function Screen(props) {
+  
   const backgroundstyle={
     height: "100%",
     width: "100%",
@@ -49,7 +50,7 @@ function Screen(props) {
 <div className="Screen" >
 <EditButton playOrPause={props.playOrPause}/>
     {props.renderTheme(backgroundstyle)}
-    <div className="content" onClick={clickThruAnimation}>
+    <div className="content" onClick={clickThruAnimation} >
       {renderOnScreen(props.crntScrRender)}
     </div>
 

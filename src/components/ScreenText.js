@@ -3,8 +3,7 @@ import './Animations.css';
 import './ScreenText.css';
 
 function ScreenText(props) {
-
-
+  
 
    const style = {color: props.element.color,
                  fontFamily: props.element.font,
@@ -28,7 +27,7 @@ function ScreenText(props) {
   }
 
   return (
-<div className='ScreenText' style={style} onAnimationEnd={nextAnimation}>{props.element.text} </div>
+<div className='ScreenText'  style={style} onAnimationEnd={nextAnimation}>{props.element.text} </div>
   );
 }
 export default ScreenText;

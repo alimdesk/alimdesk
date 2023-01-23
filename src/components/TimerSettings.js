@@ -190,7 +190,7 @@ const sliderstyle={
   
   
 
-{props.timer.on===true?<form >
+{props.timer.on===true?<form className="timersettingsform">
             <input type="text" value={props.timer.message} className="form-text" id="form-timer-text" placeholder="Enter Text Here" onChange={handleInput} />
             <label htmlFor="form-timer"  className="form-label">
             <FontAwesomeIcon icon={faClock} className="icon"/>
@@ -234,7 +234,7 @@ const sliderstyle={
             <label htmlFor="duration" className="form-label">
             <FontAwesomeIcon icon={faStopwatch} className="icon"/>
             <select name="duration" id="duration"  className="form-duration" value={props.timer.duration} onInput={handleDuration}>
-              {[...Array(15)].map((x,i)=>{
+              {[...Array(20)].map((x,i)=>{
 
                   return (<option key={i} value={`${i+1}s`}>{`${i+1} seconds`}</option>)
                 
