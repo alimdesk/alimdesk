@@ -53,14 +53,52 @@ function App() {
   const [inputColor, setInputColor] = useState("#FFFFFF");
   const [inputFont, setInputFont] = useState(fontarray[0]);
   const [inputSize, setInputSize] = useState(40);
-  const [inputTheme, setInputTheme] = useState(gifarray[4]);
+  const [inputTheme, setInputTheme] = useState(gifarray[0]);
   const [inputAnim, setInputAnimation] = useState(animarray[1]);
   const [inputDuration, setInputDuration] = useState("5s");
   const [menuOptions, setMenuOptions] = useState("Text");
   const [crntScrRender, setcrntScrRender] = useState(0);
   const [currentTime, setCurrentTime] = useState(Date.now());
-  const [lines, setLines] = useState([]);
-  const [timer, setTimer] = useState({message: "",target: "11:00",color:"#FFFFFF",font: fontarray[0],size: 40,animate: animarray[1],duration: "5s", on: true}); 
+  const [lines, setLines] = useState([
+    {
+        "id": "Welcome1673199093569",
+        "text": "Welcome",
+        "font": "Courgette, cursive",
+        "color": "#FFFFFF",
+        "size": 110,
+        "animate": "Fade",
+        "duration": "6s"
+    },
+    {
+        "id": "Thanks for Joining us at1673802916263",
+        "text": "Thanks for Joining us at",
+        "font": "Courgette, cursive",
+        "color": "#FFFFFF",
+        "size": 110,
+        "animate": "Fade",
+        "duration": "5s"
+    },
+    {
+        "id": "Abundant Life International Ministries1673802993079",
+        "text": "Abundant Life International Ministries",
+        "font": "Yeseva One, cursive",
+        "color": "#FFFFFF",
+        "size": 110,
+        "animate": "Fade",
+        "duration": "6s"
+    }
+  ]);
+const [timer, setTimer] = useState({
+  "message": "The service will start soon",
+  "target": "11:00",
+  "color": "#FFFFFF",
+  "font": "Yeseva One, cursive",
+  "size": 110,
+  "animate": "Fade",
+  "duration": "8s",
+  "on": true
+}); 
+//message: "",target: "11:00",color:"#FFFFFF",font: fontarray[0],size: 40,animate: animarray[1],duration: "5s", on: true
   
   const playOrPause =()=>{
     if(lines.length===0){
