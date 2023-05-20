@@ -58,6 +58,7 @@ function App() {
   const [inputDuration, setInputDuration] = useState("5s");
   const [menuOptions, setMenuOptions] = useState("Text");
   const [crntScrRender, setcrntScrRender] = useState(0);
+  const [projectName, setProjectName] = useState("Project 1");
   const [currentTime, setCurrentTime] = useState(Date.now());
   const [lines, setLines] = useState([
     {
@@ -166,7 +167,10 @@ const [timer, setTimer] = useState({
       let newtheme = JSON.parse(localStorage.getItem("theme"));
       setInputTheme(newtheme);
     }
-    
+    if(localStorage.getItem("projectName")!==null){
+      let newname = JSON.parse(localStorage.getItem("projectName"));
+      setProjectName(newname);
+    }
 
   },[])
 
@@ -192,6 +196,12 @@ const [timer, setTimer] = useState({
 
   },[timer])
 
+  useEffect(()=>{
+    //save timer
+    localStorage.setItem("projectName",JSON.stringify(projectName));
+
+  },[projectName])
+
 
 
   
@@ -211,6 +221,7 @@ const [timer, setTimer] = useState({
       setMenuOptions={setMenuOptions}
       setInputAnimation={setInputAnimation}
       setInputDuration={setInputDuration}
+      setProjectName={setProjectName}
       playOrPause={playOrPause}
       renderTheme={renderTheme}
       gifarray={gifarray}
@@ -221,6 +232,7 @@ const [timer, setTimer] = useState({
       inputColor={inputColor}
       inputDuration={inputDuration}
       pause={pause}
+      projectName={projectName}
       inputText={inputText}
       currentTime={currentTime}
       lines={lines}
