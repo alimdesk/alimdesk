@@ -6,9 +6,7 @@ import "./ListText.css";
 function ListText(props) {
   const fonts = props.fontarray;
   const animates = props.animarray;
-  const style = {color: props.line.color,
-                fontFamily: props.line.font
-     }
+
 const deletehandler=()=>{
   props.setLines(props.list.filter((td)=>{return td !== props.line}));
 }
@@ -67,9 +65,37 @@ const changeDuration=(e)=>{
    return td;
 }))
 }
+const handleDragStart=()=>{
+  props.setDragItemIndex(props.index);
+
+
+}
+
+const handleDragEnter=()=>{
+  props.setDragOverItemIndex(props.index);
+
+
+}
+const handleDragClass=()=>{
+  if(props.dragOverItemIndex===props.index&&props.dragItemIndex!==props.index)
+  {if(props.dragItemIndex<props.index){
+    return 'dragoverdown listTanimation'
+    }
+    else{
+      return 'dragoverup listTanimation'
+    }
+    }
+    else if(props.dragItemIndex===props.index)
+    {return 'dragitem listTanimation'}
+  else
+  return 'ListText listTanimation'
+
+  
+  
+}
 
   return (
-<div className="ListText" style={style}>
+<div className={handleDragClass()}  draggable onDragStart={handleDragStart} onDragOver={props.handleDragOver} onDrop={props.handleDrop} onDragEnter={handleDragEnter} onDragLeave={props.handleDragLeave} onDragEnd={props.handleDragEnd}>
   <div className="listbutton-text">
     
   <input type="text" className="list-text" value={props.line.text} onInput={changeText}/>

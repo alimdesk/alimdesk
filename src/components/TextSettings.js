@@ -1,8 +1,9 @@
 import React from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faFont,faForward,faPaintbrush,faPaperPlane,faStopwatch,faTextHeight } from '@fortawesome/free-solid-svg-icons'
-import ListText from "./ListText";
+import ListText from "./ListContainer";
 import './TextSettings.css';
+import ListContainer from "./ListContainer";
 
 
 function TextSettings(props) {
@@ -104,18 +105,11 @@ const submitLine=(e)=>{
             </button>
         </form>
   </div>
-  <div className="ListContainer" style={{border:props.lines.length>0?"1px solid #D1B000":""}}>
-    {props.lines.map((line)=>{
-      return (<ListText
-      key={line.id}
-      line={line}
-      list={props.lines}
-      setLines={props.setLines}
-      fontarray={props.fontarray}
-      animarray={props.animarray}
-      />)
-    })}
-  </div>
+  <ListContainer
+  lines={props.lines}
+  setLines={props.setLines}
+  fontarray={props.fontarray}
+  animarray={props.animarray}/>
 
 </div>
   );

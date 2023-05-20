@@ -20,7 +20,7 @@
     padding: 10px;
     border-radius: 10px;
     overflow-y: scroll;
-    max-height: 62%;
+    max-height: 55%;
 
 }
 .ListContainer::-webkit-scrollbar{

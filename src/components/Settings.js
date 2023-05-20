@@ -9,12 +9,69 @@ import './Settings.css';
 
 function Settings(props) {
 
+  const importproject=(e)=>{
+    
+    const fr = new FileReader();
+    fr.addEventListener("load",e=>{
+      const proj = JSON.parse(fr.result);
+      if(proj.hasOwnProperty('lines')){
+        props.setLines(proj.lines);
+      }
+      if(proj.hasOwnProperty('timer')){
+        props.setTimer(proj.timer);
+      }
+      if(proj.hasOwnProperty('theme')){
+        props.setInputTheme(proj.theme);
+        
+      }
+      if(proj.hasOwnProperty('name')){
+        props.setProjectName(proj.name);
+      }
+
+    })
+    fr.readAsText(e.target.files[0]);
+
+  }
+
+  const downloadproject=()=>{
+    const proj = { name:props.projectName,
+                  lines: props.lines,
+                  timer: props.timer,
+                  theme: props.inputTheme
+              }
+              console.log(proj)
+    const stringp = JSON.stringify(proj); 
+    const element = document.createElement('a');
+    element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(stringp));
+    element.setAttribute('download', props.projectName);
+    element.style.display = 'none';
+    document.body.appendChild(element);
+    element.click();
+    document.body.removeChild(element);
+  
+  }
+  const handleName=(e)=>{
+    props.setProjectName(e.target.value);
+  }
+
   return (
 <div className="settings">
     <div className="menu">
+    
+      <div className="importdownload">
+      <label htmlFor="import"  className="projectlabel">Import</label>
+      <input type="file" className="import" onInput={importproject} id="import"></input>
+
+      <div className="answermenu"><label htmlFor="form-answer"  className="projectname">Project Name</label>
+      <input type="text" value={props.projectName} className="form-answer" id="form-answer" onChange={handleName} />
+      </div>
+
+      <div className="download" onClick={downloadproject}>Download</div>
+      </div>
     <MenuButtons
     menuOptions={props.menuOptions}
     setMenuOptions={props.setMenuOptions}/>
+
       {props.menuOptions==="Text"?<TextSettings
       setInputText={props.setInputText}
       setLines={props.setLines}
@@ -43,7 +100,7 @@ function Settings(props) {
       renderTheme={props.renderTheme}
       gifarray={props.gifarray}
       />}
-      
+
     </div>
     <button className="playbutton" onClick={props.playOrPause}>
       <FontAwesomeIcon icon={faPlay}/>

@@ -19,9 +19,16 @@ function ThemeSettings(props) {
     const newtheme = {
       name: e.target.files[0].name,
       type: e.target.files[0].type,
-      src: URL.createObjectURL(e.target.files[0])
+      src: ''
     }
-    props.setInputTheme(newtheme);
+    const fr = new FileReader();
+    fr.addEventListener("load",e=>{
+      newtheme.src = fr.result;
+      props.setInputTheme(newtheme);
+      
+    
+    })
+    fr.readAsDataURL(e.target.files[0]);
   }
 
   return (

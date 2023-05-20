@@ -11,14 +11,48 @@
 .ListText{
 position: relative;
 display: block;
-padding:  5px 0 10px 0;
+padding:  14px 0 14px 0;
 width: 98%;
 border-radius: 5px;
 margin-bottom: 5px;
-animation: appear 0.5s linear 1;
 
 
 }
+
+.listTanimation{
+animation: appear 0.5s linear 1;
+}
+
+.dragoverup{
+position: relative;
+display: block;
+padding:  60px 0 10px 0;
+width: 98%;
+border-radius: 5px;
+margin-bottom: 5px;
+padding-top:60px;
+}
+.dragoverdown{
+    position: relative;
+    display: block;
+    padding:  10px 0 60px 0;
+    width: 98%;
+    border-radius: 5px;
+    margin-bottom: 5px;
+    
+    
+}
+.dragitem{
+    position: relative;
+    display: block;
+    padding:  14px 0 14px 0;
+    width: 98%;
+    border-radius: 5px;
+    margin-bottom: 5px;
+    border: 1px solid #D1B000;
+    
+}
+
 .ListText:hover{
     border: 1px solid #D1B000;
 }

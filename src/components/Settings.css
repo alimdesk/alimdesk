@@ -5,8 +5,63 @@
     position: relative;
 
 }
+.importdownload{
+    margin-top: 10px; 
+}
+.answermenu{
+    margin: auto;
+    display: inline-block;
+}
+.form-answer{
+    margin: auto;
+    display: block;
+    text-align: center;
+    width: 90%;
+    padding: 4px;
+    font-size: 1rem;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    border: 1px solid #D1B000;
+    background-color: #D1B000;
+
+}
+.projectlabel{
+    padding: 4px;
+    font-size: 1rem;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    border: 1px solid #D1B000;
+    margin-right: 5px;
+}
+.projectlabel:hover{
+    background-color: #D1B000;
+    color: black;   
+}
+.import{
+    display: none;
+}
+
+
+.download{
+    display: inline-block;
+    padding: 4px;
+    font-size: 1rem;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    border: 1px solid #D1B000;
+    margin-left: 5px;
+}
+.download:hover{
+    background-color: #D1B000;
+    color: black;
+}
+
+.projectname{
+    margin: auto;
+    
+}
 .menu{
-    height: 87%;
+    height: 89%;
     width:100%;
     position: relative;
 
@@ -22,7 +77,7 @@
     border: 1px solid #D1B000;
     border-radius: 5px;
     color: #D1B000;
-    margin-bottom: 20px;
+    margin-top: 10px;
 }
 .playbutton:hover{
     background-color: #D1B000;
