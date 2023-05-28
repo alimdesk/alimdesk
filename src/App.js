@@ -98,7 +98,8 @@ const [timer, setTimer] = useState({
   "animate": "Fade",
   "duration": "8s",
   "on": true
-}); 
+});
+const [inputPicVid, setPicVid] = useState(null);
 //message: "",target: "11:00",color:"#FFFFFF",font: fontarray[0],size: 40,animate: animarray[1],duration: "5s", on: true
   
   const playOrPause =()=>{
@@ -186,7 +187,8 @@ const [timer, setTimer] = useState({
 
   useEffect(()=>{
     // save list 
-    localStorage.setItem("lines",JSON.stringify(lines));
+    let safelist = lines.filter(g=>{return g.hasOwnProperty("text")});
+    localStorage.setItem("lines",JSON.stringify(safelist));
 
   },[lines])
 
@@ -197,7 +199,7 @@ const [timer, setTimer] = useState({
   },[timer])
 
   useEffect(()=>{
-    //save timer
+    //save projectname
     localStorage.setItem("projectName",JSON.stringify(projectName));
 
   },[projectName])
@@ -222,8 +224,8 @@ const [timer, setTimer] = useState({
       setInputAnimation={setInputAnimation}
       setInputDuration={setInputDuration}
       setProjectName={setProjectName}
+      setPicVid={setPicVid}
       playOrPause={playOrPause}
-      renderTheme={renderTheme}
       gifarray={gifarray}
       inputAnim={inputAnim}
       inputTheme={inputTheme}
@@ -231,6 +233,7 @@ const [timer, setTimer] = useState({
       inputSize={inputSize}
       inputColor={inputColor}
       inputDuration={inputDuration}
+      inputPicVid={inputPicVid}
       pause={pause}
       projectName={projectName}
       inputText={inputText}
