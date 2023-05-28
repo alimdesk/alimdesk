@@ -226,6 +226,7 @@ const [inputPicVid, setPicVid] = useState(null);
       setProjectName={setProjectName}
       setPicVid={setPicVid}
       playOrPause={playOrPause}
+      renderTheme={renderTheme}
       gifarray={gifarray}
       inputAnim={inputAnim}
       inputTheme={inputTheme}
