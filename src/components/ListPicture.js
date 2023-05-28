@@ -111,7 +111,7 @@ const handleDragClass=()=>{
   </select>
   </label>
   
-  <div className="change-file-container"><label htmlFor="change-file" className="picture-file">
+  <div className="change-file-container"><label htmlFor="change-file" className="listpicture-file">
             <input type="file" className="theme-file" name="change-file" id="change-file" accept="image/*,video/*" onInput={changePicVid}/>
             <FontAwesomeIcon icon={faPhotoFilm} className="listpicture-file-icon"/>
             </label>

@@ -24,9 +24,7 @@ const handlePicVid=(e)=>{
       id: `${e.target.files[0].name}${Date.now()}`,
       name: e.target.files[0].name,
       src: "",
-      type: e.target.files[0].type,
-      animate: props.inputAnim,
-      duration: props.inputDuration
+      type: e.target.files[0].type
     }
     const fr = new FileReader();
     fr.addEventListener("load",e=>{
@@ -73,7 +71,15 @@ const submitLine=(e)=>{
     props.setLines([...props.lines,header]);
     props.setInputText("");
   }else if(props.inputPicVid!==null){
-    props.setLines([...props.lines,props.inputPicVid]);
+    const newpicvid = {
+      id: props.inputPicVid.id,
+      name: props.inputPicVid.name,
+      src: props.inputPicVid.src,
+      type: props.inputPicVid.type,
+      animate: props.inputAnim,
+      duration: props.inputDuration
+    }
+    props.setLines([...props.lines,newpicvid]);
     props.setPicVid(null);
   }
 }

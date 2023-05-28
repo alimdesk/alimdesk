@@ -14,6 +14,20 @@
     text-overflow: ellipsis;
     color: white;
 }
+.listpicture-file{
+    position: relative;
+    font-size: 1.2rem;
+    margin-left: 10px;
+    cursor: pointer;
+    display: inline-block;
+    border: 1px solid #D1B000;
+    border-radius: 5px;
+    padding: 4px;
+    background-color: white;
+}
+.listpicture-file:hover{
+    background-color: #D1B000;
+}
 .ListPicture{
 position: relative;
 display: block;
@@ -87,7 +101,7 @@ padding-top:60px;
 }
 .ListPicture:hover .listhovermenu{
 display: block;
-padding-top: 5px;
+
 text-align: center;
 
 }

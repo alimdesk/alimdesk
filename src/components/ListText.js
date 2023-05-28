@@ -1,6 +1,6 @@
 import React from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faX,faFont,faForward,faPaintbrush,faPaperPlane,faStopwatch,faTextHeight } from '@fortawesome/free-solid-svg-icons'
+import { faX,faFont,faForward,faPaintbrush,faStopwatch,faTextHeight } from '@fortawesome/free-solid-svg-icons'
 import "./ListText.css";
 
 function ListText(props) {

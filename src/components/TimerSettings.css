@@ -16,6 +16,18 @@
     padding: 1px;
     color: black;
 }
+.form-timer-text{
+    margin: auto;
+    display: inline-block;
+    padding: 5px;
+    font-size: 1.3rem;
+    width: 68%;
+    border-radius: 5px;
+    border: 1px solid #D1B000;
+    margin-bottom: 5px;
+    position: relative;
+
+}
 .onoff{
 margin: auto;
 display: flex;

@@ -191,7 +191,9 @@ const sliderstyle={
   
 
 {props.timer.on===true?<form className="timersettingsform">
-            <input type="text" value={props.timer.message} className="form-text" id="form-timer-text" placeholder="Enter Text Here" onChange={handleInput} />
+            <div><input type="text" value={props.timer.message} className="form-timer-text" id="form-timer-text" placeholder="Enter Text Here" onChange={handleInput} />
+            </div>
+            
             <label htmlFor="form-timer"  className="form-label">
             <FontAwesomeIcon icon={faClock} className="icon"/>
             <input type="time" value={props.timer.target} className="form-timer" id="form-timer" onInput={handleTimer}  />

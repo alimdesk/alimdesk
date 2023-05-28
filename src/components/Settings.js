@@ -42,7 +42,7 @@ function Settings(props) {
                   timer: props.timer,
                   theme: props.inputTheme
               }
-              console.log(proj)
+              
     const stringp = JSON.stringify(proj); 
     const element = document.createElement('a');
     element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(stringp));
@@ -104,6 +104,7 @@ function Settings(props) {
       inputTheme={props.inputTheme}
       renderTheme={props.renderTheme}
       gifarray={props.gifarray}
+  
       />}
 
     </div>
