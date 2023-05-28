@@ -1,6 +1,7 @@
 import React from "react";
 import ScreenText from "./ScreenText";
 import ScreenTimer from "./ScreenTimer";
+import ScreenPicture from "./ScreenPicture";
 import EditButton from "./EditButton";
 import './Screen.css';
 
@@ -18,6 +19,17 @@ function Screen(props) {
   const renderOnScreen=(i)=>{
     if(i<props.lines.length){
       let element = props.lines[i];
+      if(element.hasOwnProperty("src")){
+        return(<ScreenPicture
+          key={element.id}
+          element={element}
+          index={i}
+          lines={props.lines}
+          timer={props.timer}
+          crntScrRender={props.crntScrRender}
+          setcrntScrRender={props.setcrntScrRender}
+          />)
+      }else
       return(<ScreenText
         key={element.id}
         element={element}

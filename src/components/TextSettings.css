@@ -39,23 +39,70 @@
 }
 .form-text{
     margin: auto;
-    display: block;
-    width: 60%;
+    display: inline-block;
     padding: 5px;
     font-size: 1.3rem;
-    margin-bottom: 5px;
+    width: 60%;
     border-radius: 5px;
     border: 1px solid #D1B000;
 
+}
+.picture-file{
+    position: relative;
+    font-size: 1.3rem;
+    margin-left: 10px;
+    cursor: pointer;
+    display: inline-block;
+    border: 1px solid #D1B000;
+    border-radius: 5px;
+    padding: 5px;
+    background-color: white;
+
+}
+.picture-file:hover{
+    background-color: #D1B000;
+
+}
+
+.picture-file-icon{
+    color: black;  
+}
+
+.picture-file-text{
+    font-size: 1rem;
+    color: white; 
+    display: inline-block;
+    margin-left: 5px;
+    max-width: 7%;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    text-overflow: ellipsis;
+    height: 1.1rem;
+}
+.picture-file-text-icon{
+    color: #D1B000;
+    cursor: pointer;
+    border: 1px solid #D1B000;
+    border-radius: 5px;
+    display: inline-block;
+    padding: 5px;
+    font-size: 0.5rem;
+    
+}
+.picture-file-text-icon:hover{
+    color: black;
+    background-color: #D1B000;
+}
+.form-text-container{
+    position: relative;
+    margin-bottom: 5px;
 }
 .form-label{
     display: inline-block;
     font-size: 1.3rem; 
     border-radius: 8%;
-    
     padding: 5px;
     margin-left: 5px;
-    
 
 }
 .icon{
@@ -69,8 +116,6 @@
     appearance: none;
     border: none;
     background-color: transparent;
-    
-    
 
 }
 .form-color::-webkit-color-swatch{
@@ -91,8 +136,6 @@
     font-size: 1.2rem;
     padding: 1px;
     color: black;
-    
-
 }
 .form-animation{
     border: 1px solid #D1B000;
@@ -100,8 +143,6 @@
     padding: 1px;
     font-size: 1.2rem;
     color: black;
-    
-
 }
 .form-duration{
     border: 1px solid #D1B000;
@@ -109,7 +150,6 @@
     font-size: 1.2rem;
     color: black;
     padding: 1px;
-    
 
 }
 .form-button{

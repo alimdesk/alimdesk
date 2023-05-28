@@ -6,9 +6,23 @@
     color: black;
 }
 .theme-file{
-    color: white;
-    font-size: 17px;
+    display: none;
 }
 .preview{
     margin-top: 2rem;
+}
+.theme-file-text{
+    padding: 4px;
+    font-size: 1.2rem;
+    border-radius: 5px;
+    border: 1px solid #D1B000;
+    color: black;
+    background-color: white;
+    cursor: pointer;
+}
+.theme-file-text:hover{
+    
+    color: black;
+    background-color: #D1B000;
+ 
 }

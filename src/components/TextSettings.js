@@ -1,6 +1,6 @@
 import React from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faFont,faForward,faPaintbrush,faPaperPlane,faStopwatch,faTextHeight } from '@fortawesome/free-solid-svg-icons'
+import { faFont,faForward,faPaintbrush,faPaperPlane,faStopwatch,faTextHeight,faPhotoFilm, faX } from '@fortawesome/free-solid-svg-icons'
 import ListText from "./ListContainer";
 import './TextSettings.css';
 import ListContainer from "./ListContainer";
@@ -13,6 +13,33 @@ function TextSettings(props) {
 
 const handleInput=(e)=>{
   props.setInputText(e.target.value);
+  if(props.inputPicVid!==null){
+    props.setPicVid(null);
+  }
+  
+}
+const handlePicVid=(e)=>{
+  if(e.target.files.length>0){
+    const newpicvid = {
+      id: `${e.target.files[0].name}${Date.now()}`,
+      name: e.target.files[0].name,
+      src: "",
+      type: e.target.files[0].type,
+      animate: props.inputAnim,
+      duration: props.inputDuration
+    }
+    const fr = new FileReader();
+    fr.addEventListener("load",e=>{
+      newpicvid.src = fr.result;
+      props.setPicVid(newpicvid);
+      props.setInputText("");
+      
+    
+    })
+    fr.readAsDataURL(e.target.files[0]);
+  }else{
+    props.setPicVid(null);
+  }
 }
 const handleColor=(e)=>{
   props.setInputColor(e.target.value);
@@ -32,7 +59,7 @@ const handleAnimation=(e)=>{
 }
 const submitLine=(e)=>{
   e.preventDefault();
-  if(props.inputText!==""){
+  if(props.inputText!==""&&props.inputPicVid==null){
     const header = {
       id: `${props.inputText}${Date.now()}`,
       text: props.inputText,
@@ -45,6 +72,9 @@ const submitLine=(e)=>{
     }
     props.setLines([...props.lines,header]);
     props.setInputText("");
+  }else if(props.inputPicVid!==null){
+    props.setLines([...props.lines,props.inputPicVid]);
+    props.setPicVid(null);
   }
 }
 
@@ -53,7 +83,16 @@ const submitLine=(e)=>{
   
   <div className="textsettingsform">
   <form >
+            <div className="form-text-container">
             <input type="text" value={props.inputText} className="form-text" id="form-text" placeholder="Enter Text Here" onChange={handleInput} />
+            <label htmlFor="picture-file" className="picture-file">
+            <input type="file" className="theme-file" name="picture-file" id="picture-file" accept="image/*,video/*" onInput={handlePicVid}/>
+            <FontAwesomeIcon icon={faPhotoFilm} className="picture-file-icon"/>
+            </label>
+            <div className="picture-file-text">{props.inputPicVid!==null?`${props.inputPicVid.name}`:''}</div>
+            <span >{props.inputPicVid!==null?<FontAwesomeIcon icon={faX} className="picture-file-text-icon" onClick={()=>{props.setPicVid(null)}}/>:''}</span>
+            
+            </div>
             <label htmlFor="color"  className="form-label">
               <FontAwesomeIcon icon={faPaintbrush} className="icon"/>
               <input type="color" value={props.inputColor} className="form-color" id="form-time" onInput={handleColor}  />

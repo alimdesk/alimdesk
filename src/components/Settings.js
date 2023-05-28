@@ -10,8 +10,8 @@ import './Settings.css';
 function Settings(props) {
 
   const importproject=(e)=>{
-    
-    const fr = new FileReader();
+    if(e.target.files.length>0){
+      const fr = new FileReader();
     fr.addEventListener("load",e=>{
       const proj = JSON.parse(fr.result);
       if(proj.hasOwnProperty('lines')){
@@ -31,6 +31,9 @@ function Settings(props) {
     })
     fr.readAsText(e.target.files[0]);
 
+    }
+    
+    
   }
 
   const downloadproject=()=>{
@@ -60,7 +63,7 @@ function Settings(props) {
     
       <div className="importdownload">
       <label htmlFor="import"  className="projectlabel">Import</label>
-      <input type="file" className="import" onInput={importproject} id="import"></input>
+      <input type="file" className="import" onInput={importproject} id="import" accept=".txt"></input>
 
       <div className="answermenu"><label htmlFor="form-answer"  className="projectname">Project Name</label>
       <input type="text" value={props.projectName} className="form-answer" id="form-answer" onChange={handleName} />
@@ -80,6 +83,7 @@ function Settings(props) {
       setInputSize={props.setInputSize}
       setInputAnimation={props.setInputAnimation}
       setInputDuration={props.setInputDuration}
+      setPicVid={props.setPicVid}
       fontarray={props.fontarray}
       animarray={props.animarray}
       inputAnim={props.inputAnim}
@@ -88,6 +92,7 @@ function Settings(props) {
       inputFont={props.inputFont}
       inputSize={props.inputSize}
       inputDuration={props.inputDuration}
+      inputPicVid={props.inputPicVid}
       lines={props.lines}
       />:props.menuOptions==="Timer"?<TimerSettings
       setTimer={props.setTimer}

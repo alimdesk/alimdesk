@@ -1,0 +1,141 @@
+.list-picturetext{
+    
+    
+    width: 90%;
+    font-size: 1.3rem;
+    border-radius: 5px;
+    display: inline-block;
+    margin-right: 5px;
+    margin-left: 5px;
+    padding: 2px 5px;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    max-height: 1.35rem;
+    text-overflow: ellipsis;
+    color: white;
+}
+.ListPicture{
+position: relative;
+display: block;
+padding:  14px 0 14px 0;
+width: 98%;
+border-radius: 5px;
+margin-bottom: 5px;
+color: black;
+text-align: center;
+box-sizing: border-box;
+
+}
+.change-file-container{
+    display: inline-block;
+}
+.listTanimation{
+animation: appear 0.5s linear 1;
+}
+
+.dragoverup{
+position: relative;
+display: block;
+padding:  60px 0 10px 0;
+width: 98%;
+border-radius: 5px;
+margin-bottom: 5px;
+padding-top:60px;
+}
+.dragoverdown{
+    position: relative;
+    display: block;
+    padding:  10px 0 60px 0;
+    width: 98%;
+    border-radius: 5px;
+    margin-bottom: 5px;
+    
+    
+}
+.dragitem{
+    position: relative;
+    display: block;
+    padding:  14px 0 14px 0;
+    width: 98%;
+    border-radius: 5px;
+    margin-bottom: 5px;
+    border: 1px solid #D1B000;
+    
+}
+
+.ListPicture:hover{
+    border: 1px solid #D1B000;
+}
+.listbutton-text{
+    display: block;
+    width: 100%;
+    padding-bottom: 3px;
+    position: relative;
+}
+.listbutton{
+    font-size: 1.3rem;
+    background-color: black;
+    color: #D1B000;
+    border-radius: 5px;
+    padding: 2px 5px 0 5px;
+    display: inline-block;
+}
+.listbutton:hover{
+    background-color: #D1B000;
+    color: black;
+    
+}
+.ListPicture:hover .listhovermenu{
+display: block;
+padding-top: 5px;
+text-align: center;
+
+}
+.listpicture-file-icon{
+    color: black; 
+}
+.ListPicture:hover .listbutton-text{
+    padding-bottom: 0;
+    
+    }
+.listhovermenu{
+    display: none;
+    position: relative;
+
+
+
+}
+.listlabel{
+    display: inline-block;
+    padding: 2px;
+    font-size: 1.3rem;
+    margin-right: 10px;
+
+}
+
+.listanimation{
+    font-size: 1.1rem;
+    border: 1px solid #D1B000;
+    border-radius: 5px;
+    color: black;
+    padding: 1px;
+}
+.listduration{
+    font-size: 1.1rem;
+    border: 1px solid #D1B000;
+    border-radius: 5px;
+    color: black;
+    padding: 1px;  
+}
+@keyframes appear{
+    0% {
+        color:#D1B000;
+        background-color: #D1B000;
+    }
+
+    100% {
+        color:black;
+        background-color: black;
+    }
+
+}

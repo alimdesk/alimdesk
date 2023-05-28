@@ -16,19 +16,22 @@ function ThemeSettings(props) {
     props.setInputTheme(JSON.parse(e.target.value));
   }
   const handleFile=(e)=>{
-    const newtheme = {
-      name: e.target.files[0].name,
-      type: e.target.files[0].type,
-      src: ''
-    }
-    const fr = new FileReader();
-    fr.addEventListener("load",e=>{
-      newtheme.src = fr.result;
-      props.setInputTheme(newtheme);
+    if(e.target.files.length>0){
+      const newtheme = {
+        name: e.target.files[0].name,
+        type: e.target.files[0].type,
+        src: ''
+      }
+      const fr = new FileReader();
+      fr.addEventListener("load",e=>{
+        newtheme.src = fr.result;
+        props.setInputTheme(newtheme);
+        
       
+      })
+      fr.readAsDataURL(e.target.files[0]);
+    }
     
-    })
-    fr.readAsDataURL(e.target.files[0]);
   }
 
   return (
@@ -43,6 +46,7 @@ function ThemeSettings(props) {
 </label>
 <label htmlFor="theme-file"  className="form-label">
 <FontAwesomeIcon icon={faPhotoFilm} className="icon"/>
+<span className="theme-file-text">Choose Picture/Video from Computer</span>
 <input type="file" className="theme-file" name="theme-file" id="theme-file" accept="image/*,video/*" onInput={handleFile}/>
 </label>
 
