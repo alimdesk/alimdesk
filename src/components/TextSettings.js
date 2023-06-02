@@ -1,12 +1,14 @@
 import React from "react";
+import {useState,Suspense} from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faFont,faForward,faPaintbrush,faPaperPlane,faStopwatch,faTextHeight,faPhotoFilm, faX } from '@fortawesome/free-solid-svg-icons'
-import ListText from "./ListContainer";
+import { faFont,faForward,faPaintbrush,faPaperPlane,faStopwatch,faTextHeight,faPhotoFilm, faX,faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons'
 import './TextSettings.css';
 import ListContainer from "./ListContainer";
 
 
 function TextSettings(props) {
+  const [previewpic,setPreviewpic] = useState(false);
+  const [previewdetails,setPreviewdetails] = useState(props.inputPicVid);
 
   const fonts = props.fontarray;
   const animates = props.animarray;
@@ -36,7 +38,7 @@ const handlePicVid=(e)=>{
     })
     fr.readAsDataURL(e.target.files[0]);
   }else{
-    props.setPicVid(null);
+    //props.setPicVid(null);
   }
 }
 const handleColor=(e)=>{
@@ -83,21 +85,35 @@ const submitLine=(e)=>{
     props.setPicVid(null);
   }
 }
+const handlepreview =()=>{
+  setPreviewdetails(props.inputPicVid);
+  setPreviewpic(prev=>!prev);
+  
+}
+const renderpreviewPicVid=()=>{
+  if(previewdetails.type.split("/")[0]==="image"){
+    return (<img src={previewdetails.src} className="previewpicvid" alt={previewdetails.name}/>);
+  }else if(previewdetails.type.split("/")[0]==="video"){
+    return (<video  src={previewdetails.src} className="previewpicvid" muted autoPlay loop />);
+  }else{
+    return "";
+  }
+
+}
 
   return (
 <div className="TextSettings">
   
   <div className="textsettingsform">
   <form >
-            <div className="form-text-container">
+
+           {props.inputPicVid==null? <div className="submenu">
+           <div className="form-text-container">
             <input type="text" value={props.inputText} className="form-text" id="form-text" placeholder="Enter Text Here" onChange={handleInput} />
             <label htmlFor="picture-file" className="picture-file">
             <input type="file" className="theme-file" name="picture-file" id="picture-file" accept="image/*,video/*" onInput={handlePicVid}/>
             <FontAwesomeIcon icon={faPhotoFilm} className="picture-file-icon"/>
             </label>
-            <div className="picture-file-text">{props.inputPicVid!==null?`${props.inputPicVid.name}`:''}</div>
-            <span >{props.inputPicVid!==null?<FontAwesomeIcon icon={faX} className="picture-file-text-icon" onClick={()=>{props.setPicVid(null)}}/>:''}</span>
-            
             </div>
             <label htmlFor="color"  className="form-label">
               <FontAwesomeIcon icon={faPaintbrush} className="icon"/>
@@ -143,6 +159,42 @@ const submitLine=(e)=>{
               })}
             </select>
             </label>
+            </div>: <div className="submenu">
+              <div className="form-text-container">
+              <label htmlFor="picture-file" className="picture-file">
+            <input type="file" className="theme-file" name="picture-file" id="picture-file" accept="image/*,video/*" onInput={handlePicVid}/>
+            <FontAwesomeIcon icon={faPhotoFilm} className="picture-file-icon"/>
+            </label>
+            <div className="picture-file-text">{props.inputPicVid!==null?`${props.inputPicVid.name}`:''}</div>
+            <span className="picture-file-text-icon-container">{props.inputPicVid!==null?<FontAwesomeIcon icon={faX} className="picture-file-text-icon" onClick={()=>{props.setPicVid(null); setPreviewpic(false);}}/>:''}</span>
+            
+              </div>
+              <div className="inputpreview" onClick={handlepreview}>
+              <FontAwesomeIcon icon={faMagnifyingGlass} className="previewicon"/>
+              </div>
+            <label htmlFor="animation" className="form-label">
+            <FontAwesomeIcon icon={faForward} className="icon"/>
+            <select name="animation" id="animation"  className="form-animation"  value={props.inputAnim} onInput={handleAnimation}>
+              {animates.map((x)=>{
+                 return (<option key={x} value={`${x}`}>{`${x}`}</option>)
+              })}
+            </select>
+            </label>
+            
+            <label htmlFor="duration" className="form-label">
+            <FontAwesomeIcon icon={faStopwatch} className="icon"/>
+            <select name="duration" id="duration"  className="form-duration" value={props.inputDuration} onInput={handleDuration}>
+              {[...Array(20)].map((x,i)=>{
+
+                  return (<option key={i} value={`${i+1}s`}>{`${i+1} seconds`}</option>)
+                
+              })}
+            </select>
+            </label>
+          
+            </div>}
+            {previewpic && <div className="previewpiccont" onClick={()=>{setPreviewpic(false)}}>{renderpreviewPicVid()}</div>}
+            
             
             <button className="form-button" type="submit" onClick={submitLine}> 
                 <span className="button-text">Submit</span>
@@ -154,7 +206,9 @@ const submitLine=(e)=>{
   lines={props.lines}
   setLines={props.setLines}
   fontarray={props.fontarray}
-  animarray={props.animarray}/>
+  animarray={props.animarray}
+  setPreviewpic={setPreviewpic}
+  setPreviewdetails={setPreviewdetails}/>
 
 </div>
   );

@@ -1,6 +1,6 @@
 import React from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faForward,faStopwatch,faPhotoFilm,faX } from '@fortawesome/free-solid-svg-icons'
+import { faForward,faStopwatch,faPhotoFilm,faX,faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons'
 import "./ListPicture.css";
 
 function ListPicture(props) {
@@ -82,6 +82,11 @@ const handleDragClass=()=>{
   
   
 }
+const setuppreview=()=>{
+  props.setPreviewdetails(props.line);
+  props.setPreviewpic(true);
+}
+
 
   return (
 <div className={handleDragClass()}  draggable onDragStart={handleDragStart} onDragOver={props.handleDragOver} onDrop={props.handleDrop} onDragEnter={handleDragEnter} onDragLeave={props.handleDragLeave} onDragEnd={props.handleDragEnd}>
@@ -92,6 +97,9 @@ const handleDragClass=()=>{
   </button>
   </div>
   <div className="listhovermenu">
+  <div className="listpreview" onClick={setuppreview}>
+              <FontAwesomeIcon icon={faMagnifyingGlass} className="listicon"/>
+              </div>
   <label htmlFor="listanimation" className="listlabel">
   <FontAwesomeIcon icon={faForward} className="icon"/>
   <select name="listanimation" id="listanimation"  className="listanimation"  value={props.line.animate} onInput={changeAnim}>
@@ -117,7 +125,6 @@ const handleDragClass=()=>{
             </label>
             </div>
   </div>
-
 </div>
   );
 }

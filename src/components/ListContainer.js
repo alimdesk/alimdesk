@@ -53,6 +53,9 @@ const handleDrop=()=>{
           handleDragLeave={handleDragLeave}
           handleDragEnd={handleDragEnd}
           handleDrop={handleDrop}
+          setPreviewpic={props.setPreviewpic}
+          setPreviewdetails={props.setPreviewdetails}
+
           
           />)
       }else if(line.hasOwnProperty("text")){

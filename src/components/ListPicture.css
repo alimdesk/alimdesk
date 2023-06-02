@@ -119,6 +119,23 @@ text-align: center;
 
 
 }
+.listpreview{
+    position: relative;
+    font-size: 1.2rem;
+    cursor: pointer;
+    display: inline-block;
+    border: 1px solid #D1B000;
+    border-radius: 5px;
+    padding: 5px 6px 5px 6px;
+    background-color: white;
+    margin-right: 5px;
+}
+.listpreview:hover {
+    background-color:#D1B000;
+}
+.listicon{
+    color: black; 
+}
 .listlabel{
     display: inline-block;
     padding: 2px;
