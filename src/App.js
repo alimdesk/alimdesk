@@ -100,7 +100,7 @@ const [timer, setTimer] = useState({
   "on": true
 });
 const [inputPicVid, setPicVid] = useState(null);
-//message: "",target: "11:00",color:"#FFFFFF",font: fontarray[0],size: 40,animate: animarray[1],duration: "5s", on: true
+
   
   const playOrPause =()=>{
     if(lines.length===0){
