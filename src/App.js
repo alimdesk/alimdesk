@@ -134,7 +134,7 @@ const [inputPicVid, setPicVid] = useState(null);
       if(inputTheme.type.split("/")[0]==="image"){
         return (<img style={styleobj} src={inputTheme.src} alt={inputTheme.name}/>);
       }else if(inputTheme.type.split("/")[0]==="video"){
-        return (<video style={styleobj} src={inputTheme.src} muted autoPlay loop/>);
+        return (<video style={styleobj} src={inputTheme.src} muted={inputTheme.muted==true?true:false} autoPlay loop/>);
       }else{
         return "";
       }
