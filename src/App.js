@@ -38,7 +38,8 @@ function App() {
   const animarray=[
     "Slide",
     "Fade",
-    "Scroll"
+    "Scroll",
+    "Nothing"
   ]
   const gifarray=[
     {name: "cross",src: "/alimdesk/images/cross.gif",type: "image/gif"},
