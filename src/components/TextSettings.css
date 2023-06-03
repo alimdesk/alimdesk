@@ -200,6 +200,7 @@
 
 .soundicon{
     color: black; 
+    
 }
 
 .soundbutton{
@@ -212,6 +213,8 @@
     padding: 6px 7px 6px 7px;
     background-color: white;
     margin-right: 15px;
+    
+    
 }
 
 .soundbutton:hover {
@@ -240,4 +243,13 @@
     background-color: rgba(0, 0, 0, 0.5);
     
     
+}
+.crossthru{
+    color: black;
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-size: 1.2rem;
+    padding: 6px 7px 6px 6px;
+    transform: rotate(5deg);
 }

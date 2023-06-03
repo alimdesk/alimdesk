@@ -1,7 +1,7 @@
 import React from "react";
 import {useState,Suspense} from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faFont,faForward,faPaintbrush,faPaperPlane,faStopwatch,faTextHeight,faPhotoFilm, faX,faMagnifyingGlass,faVolumeHigh,faVolumeXmark } from '@fortawesome/free-solid-svg-icons'
+import { faFont,faForward,faPaintbrush,faPaperPlane,faStopwatch,faTextHeight,faPhotoFilm, faX,faMagnifyingGlass,faVolumeHigh,faVolumeXmark,faRepeat, faSlash } from '@fortawesome/free-solid-svg-icons'
 import './TextSettings.css';
 import ListContainer from "./ListContainer";
 
@@ -26,6 +26,7 @@ const handlePicVid=(e)=>{
       id: `${e.target.files[0].name}${Date.now()}`,
       name: e.target.files[0].name,
       muted: false,
+      repeat: true,
       src: "",
       type: e.target.files[0].type
     }
@@ -61,6 +62,9 @@ const handleAnimation=(e)=>{
 const handleVolume=()=>{
   props.setPicVid((prevstate)=> {return {...prevstate, muted: !prevstate.muted}});
 }
+const handleRepeat=()=>{
+  props.setPicVid((prevstate)=> {return {...prevstate, repeat: !prevstate.repeat}});
+}
 const submitLine=(e)=>{
   e.preventDefault();
   if(props.inputText!==""&&props.inputPicVid==null){
@@ -81,6 +85,7 @@ const submitLine=(e)=>{
       id: props.inputPicVid.id,
       name: props.inputPicVid.name,
       muted: props.inputPicVid.muted,
+      repeat: props.inputPicVid.repeat,
       src: props.inputPicVid.src,
       type: props.inputPicVid.type,
       animate: props.inputAnim,
@@ -99,13 +104,7 @@ const renderpreviewPicVid=()=>{
   if(previewdetails.type.split("/")[0]==="image"){
     return (<img src={previewdetails.src} className="previewpicvid" alt={previewdetails.name}/>);
   }else if(previewdetails.type.split("/")[0]==="video"){
-    if(previewdetails.muted==true){
-      return (<video  src={previewdetails.src} className="previewpicvid" muted autoPlay loop />);
-    }else{
-      return (<video  src={previewdetails.src} className="previewpicvid" autoPlay loop />);
-    }
-
-    
+    return (<video  src={previewdetails.src} className="previewpicvid" muted={previewdetails.muted==true?true:false} autoPlay loop={previewdetails.repeat==true?true:false}  onEnded={()=>{setPreviewpic(prev=>!prev);}}/>);
   }else{
     return "";
   }
@@ -187,6 +186,11 @@ const renderpreviewPicVid=()=>{
                 <FontAwesomeIcon icon={faVolumeHigh} className="soundicon"/>}
               
               </div>}
+              {props.inputPicVid.type.split("/")[0]==="video" && <div className="soundbutton" onClick={handleRepeat}>
+              <FontAwesomeIcon icon={faRepeat} className="soundicon"/>
+              {props.inputPicVid.repeat==false?<FontAwesomeIcon icon={faSlash} className="crossthru"/>:""}
+              </div>}
+
               <div className="inputpreview" onClick={handlepreview}>
               <FontAwesomeIcon icon={faMagnifyingGlass} className="previewicon"/>
               </div>

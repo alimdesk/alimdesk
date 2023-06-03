@@ -1,6 +1,6 @@
 import React from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faForward,faStopwatch,faPhotoFilm,faX,faMagnifyingGlass,faVolumeHigh,faVolumeXmark } from '@fortawesome/free-solid-svg-icons'
+import { faForward,faStopwatch,faPhotoFilm,faX,faMagnifyingGlass,faVolumeHigh,faVolumeXmark,faRepeat, faSlash } from '@fortawesome/free-solid-svg-icons'
 import "./ListPicture.css";
 
 function ListPicture(props) {
@@ -59,7 +59,15 @@ const changeVolume=()=>{
    }
    return td;
 }))
-}    
+}
+const changeRepeat=()=>{
+  props.setLines(props.list.map((td)=>{
+    if(td.id === props.line.id){
+     td.repeat = !td.repeat;
+   }
+   return td;
+}))
+}      
   
 const handleDragStart=()=>{
   props.setDragItemIndex(props.index);
@@ -105,10 +113,15 @@ const setuppreview=()=>{
   </div>
   <div className="listhovermenu">
   {props.line.type.split("/")[0]==="video" && <div className="soundbutton" onClick={changeVolume}>
-                {props.line.muted==true?<FontAwesomeIcon icon={faVolumeXmark} className="soundicon"/>:
-                <FontAwesomeIcon icon={faVolumeHigh} className="soundicon"/>}
-              
-              </div>}
+    {props.line.muted==true?<FontAwesomeIcon icon={faVolumeXmark} className="soundicon"/>:
+      <FontAwesomeIcon icon={faVolumeHigh} className="soundicon"/>}
+  </div>}
+
+  {props.line.type.split("/")[0]==="video" && <div className="soundbutton" onClick={changeRepeat}>
+      <FontAwesomeIcon icon={faRepeat} className="soundicon"/>
+        {props.line.repeat==false?<FontAwesomeIcon icon={faSlash} className="crossthru"/>:""}
+  </div>}
+
   <div className="listpreview" onClick={setuppreview}>
               <FontAwesomeIcon icon={faMagnifyingGlass} className="listicon"/>
               </div>

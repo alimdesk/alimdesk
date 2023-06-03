@@ -1,6 +1,6 @@
 import React from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faImages,faPhotoFilm } from '@fortawesome/free-solid-svg-icons'
+import { faImages,faPhotoFilm,faVolumeHigh,faVolumeXmark } from '@fortawesome/free-solid-svg-icons'
 import './ThemeSettings.css';
 
 function ThemeSettings(props) {
@@ -19,6 +19,7 @@ function ThemeSettings(props) {
     if(e.target.files.length>0){
       const newtheme = {
         name: e.target.files[0].name,
+        muted: false,
         type: e.target.files[0].type,
         src: ''
       }
@@ -33,6 +34,10 @@ function ThemeSettings(props) {
     }
     
   }
+
+const handleThemeVolume=()=>{
+  props.setInputTheme((prevstate)=> {return {...prevstate, muted: !prevstate.muted}});
+}
 
   return (
 <div className="ThemeSettings">
@@ -49,6 +54,11 @@ function ThemeSettings(props) {
 <span className="theme-file-text">Choose Picture/Video from Computer</span>
 <input type="file" className="theme-file" name="theme-file" id="theme-file" accept="image/*,video/*" onInput={handleFile}/>
 </label>
+{props.inputTheme.type.split("/")[0]==="video" && <div className="themesoundbutton" onClick={handleThemeVolume}>
+                {props.inputTheme.muted==true?<FontAwesomeIcon icon={faVolumeXmark} className="soundicon"/>:
+                <FontAwesomeIcon icon={faVolumeHigh} className="soundicon"/>}
+              
+              </div>}
 
 <div className="preview">
    {props.renderTheme(previewstyle)}

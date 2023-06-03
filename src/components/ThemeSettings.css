@@ -26,3 +26,19 @@
     background-color: #D1B000;
  
 }
+.themesoundbutton{
+    position: relative;
+    font-size: 1.2rem;
+    cursor: pointer;
+    display: inline-block;
+    border: 1px solid #D1B000;
+    border-radius: 5px;
+    padding: 6px 7px 6px 7px;
+    background-color: white;
+    margin-left: 15px;
+    
+    
+}
+.themesoundbutton:hover{
+    background-color: #D1B000;
+}
