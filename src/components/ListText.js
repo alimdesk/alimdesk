@@ -110,13 +110,7 @@ const handleDragClass=()=>{
   </label>
   <label htmlFor="listsize" className="listlabel">
   <FontAwesomeIcon icon={faTextHeight} className="icon"/>
-  <select name="listsize" id="listsize"  className="listsize" value={props.line.size} onInput={changeSize}>
-              {[...Array(71)].map((x,i)=>{
-
-                  return (<option key={i} value={`${i+40}`}>{`${i+40}`}</option>)
-                
-              })}
-  </select>
+  <input type="number" name="listsize" id="listsize"  className="listsize" min={40} max={250} value={props.line.size} onInput={changeSize}/>
   </label>
 
   <label htmlFor="listfont" className="listlabel">
@@ -139,11 +133,19 @@ const handleDragClass=()=>{
   <label htmlFor="listduration" className="listlabel">
   <FontAwesomeIcon icon={faStopwatch} className="icon"/>
   <select name="listduration" id="listduration"  className="listduration" value={props.line.duration} onInput={changeDuration}>
-              {[...Array(20)].map((x,i)=>{
+              {[...Array(10)].map((x,i)=>{
 
                   return (<option key={i} value={`${i+1}s`}>{`${i+1} seconds`}</option>)
                 
               })}
+              <option key={'15s'} value='15s'>15 seconds</option>
+              <option key={'20s'} value='20s'>20 seconds</option>
+              <option key={'30s'} value='30s'>30 seconds</option>
+              <option key={'45s'} value='45s'>45 seconds</option>
+              <option key={'60s'} value='60s'>1 minute</option>
+              <option key={'120s'} value='120s'>2 minute</option>
+              <option key={'180s'} value='180s'>3 minute</option>
+              <option key={'300s'} value='300s'>5 minute</option>
   </select>
   </label>
   

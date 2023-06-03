@@ -1,6 +1,6 @@
 import React from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faForward,faStopwatch,faPhotoFilm,faX,faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons'
+import { faForward,faStopwatch,faPhotoFilm,faX,faMagnifyingGlass,faVolumeHigh,faVolumeXmark } from '@fortawesome/free-solid-svg-icons'
 import "./ListPicture.css";
 
 function ListPicture(props) {
@@ -51,8 +51,15 @@ const changePicVid=(e)=>{
           fr.readAsDataURL(e.target.files[0]);
         }else{}
         
-    }
-    
+}
+const changeVolume=()=>{
+  props.setLines(props.list.map((td)=>{
+    if(td.id === props.line.id){
+     td.muted = !td.muted;
+   }
+   return td;
+}))
+}    
   
 const handleDragStart=()=>{
   props.setDragItemIndex(props.index);
@@ -97,6 +104,11 @@ const setuppreview=()=>{
   </button>
   </div>
   <div className="listhovermenu">
+  {props.line.type.split("/")[0]==="video" && <div className="soundbutton" onClick={changeVolume}>
+                {props.line.muted==true?<FontAwesomeIcon icon={faVolumeXmark} className="soundicon"/>:
+                <FontAwesomeIcon icon={faVolumeHigh} className="soundicon"/>}
+              
+              </div>}
   <div className="listpreview" onClick={setuppreview}>
               <FontAwesomeIcon icon={faMagnifyingGlass} className="listicon"/>
               </div>
@@ -111,11 +123,19 @@ const setuppreview=()=>{
   <label htmlFor="listduration" className="listlabel">
   <FontAwesomeIcon icon={faStopwatch} className="icon"/>
   <select name="listduration" id="listduration"  className="listduration" value={props.line.duration} onInput={changeDuration}>
-              {[...Array(20)].map((x,i)=>{
+              {[...Array(10)].map((x,i)=>{
 
                   return (<option key={i} value={`${i+1}s`}>{`${i+1} seconds`}</option>)
                 
               })}
+              <option key={'15s'} value='15s'>15 seconds</option>
+              <option key={'20s'} value='20s'>20 seconds</option>
+              <option key={'30s'} value='30s'>30 seconds</option>
+              <option key={'45s'} value='45s'>45 seconds</option>
+              <option key={'60s'} value='60s'>1 minute</option>
+              <option key={'120s'} value='120s'>2 minute</option>
+              <option key={'180s'} value='180s'>3 minute</option>
+              <option key={'300s'} value='300s'>5 minute</option>
   </select>
   </label>
   

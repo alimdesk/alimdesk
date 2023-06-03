@@ -197,6 +197,26 @@
 .previewicon{
     color: black; 
 }
+
+.soundicon{
+    color: black; 
+}
+
+.soundbutton{
+    position: relative;
+    font-size: 1.2rem;
+    cursor: pointer;
+    display: inline-block;
+    border: 1px solid #D1B000;
+    border-radius: 5px;
+    padding: 6px 7px 6px 7px;
+    background-color: white;
+    margin-right: 15px;
+}
+
+.soundbutton:hover {
+    background-color:#D1B000;
+}
 .previewpicvid{
 
     height: 60%;
@@ -206,6 +226,7 @@
     margin: auto;
     position: relative;
     top: 15%;
+    background-color: black;
     
 }
 .previewpiccont{

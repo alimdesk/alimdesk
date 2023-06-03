@@ -1,7 +1,7 @@
 import React from "react";
 import {useState,Suspense} from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faFont,faForward,faPaintbrush,faPaperPlane,faStopwatch,faTextHeight,faPhotoFilm, faX,faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons'
+import { faFont,faForward,faPaintbrush,faPaperPlane,faStopwatch,faTextHeight,faPhotoFilm, faX,faMagnifyingGlass,faVolumeHigh,faVolumeXmark } from '@fortawesome/free-solid-svg-icons'
 import './TextSettings.css';
 import ListContainer from "./ListContainer";
 
@@ -25,6 +25,7 @@ const handlePicVid=(e)=>{
     const newpicvid = {
       id: `${e.target.files[0].name}${Date.now()}`,
       name: e.target.files[0].name,
+      muted: false,
       src: "",
       type: e.target.files[0].type
     }
@@ -57,6 +58,9 @@ const handleFont=(e)=>{
 const handleAnimation=(e)=>{
   props.setInputAnimation(e.target.value);
 }
+const handleVolume=()=>{
+  props.setPicVid((prevstate)=> {return {...prevstate, muted: !prevstate.muted}});
+}
 const submitLine=(e)=>{
   e.preventDefault();
   if(props.inputText!==""&&props.inputPicVid==null){
@@ -76,6 +80,7 @@ const submitLine=(e)=>{
     const newpicvid = {
       id: props.inputPicVid.id,
       name: props.inputPicVid.name,
+      muted: props.inputPicVid.muted,
       src: props.inputPicVid.src,
       type: props.inputPicVid.type,
       animate: props.inputAnim,
@@ -94,7 +99,13 @@ const renderpreviewPicVid=()=>{
   if(previewdetails.type.split("/")[0]==="image"){
     return (<img src={previewdetails.src} className="previewpicvid" alt={previewdetails.name}/>);
   }else if(previewdetails.type.split("/")[0]==="video"){
-    return (<video  src={previewdetails.src} className="previewpicvid" muted autoPlay loop />);
+    if(previewdetails.muted==true){
+      return (<video  src={previewdetails.src} className="previewpicvid" muted autoPlay loop />);
+    }else{
+      return (<video  src={previewdetails.src} className="previewpicvid" autoPlay loop />);
+    }
+
+    
   }else{
     return "";
   }
@@ -122,13 +133,8 @@ const renderpreviewPicVid=()=>{
             
             <label htmlFor="size" className="form-label">
             <FontAwesomeIcon icon={faTextHeight} className="icon"/>
-            <select name="size" id="size"  className="form-size" value={props.inputSize} onInput={handleSize}>
-              {[...Array(71)].map((x,i)=>{
 
-                  return (<option key={i} value={`${i+40}`}>{`${i+40}`}</option>)
-                
-              })}
-            </select>
+            <input type="number"name="size" id="size"  className="form-size"  min={40} max={250} value={props.inputSize} onInput={handleSize}/>
             </label>
             
             <label htmlFor="font" className="form-label">
@@ -152,11 +158,19 @@ const renderpreviewPicVid=()=>{
             <label htmlFor="duration" className="form-label">
             <FontAwesomeIcon icon={faStopwatch} className="icon"/>
             <select name="duration" id="duration"  className="form-duration" value={props.inputDuration} onInput={handleDuration}>
-              {[...Array(20)].map((x,i)=>{
+              {[...Array(10)].map((x,i)=>{
 
                   return (<option key={i} value={`${i+1}s`}>{`${i+1} seconds`}</option>)
                 
               })}
+              <option key={'15s'} value='15s'>15 seconds</option>
+              <option key={'20s'} value='20s'>20 seconds</option>
+              <option key={'30s'} value='30s'>30 seconds</option>
+              <option key={'45s'} value='45s'>45 seconds</option>
+              <option key={'60s'} value='60s'>1 minute</option>
+              <option key={'120s'} value='120s'>2 minute</option>
+              <option key={'180s'} value='180s'>3 minute</option>
+              <option key={'300s'} value='300s'>5 minute</option>              
             </select>
             </label>
             </div>: <div className="submenu">
@@ -167,8 +181,12 @@ const renderpreviewPicVid=()=>{
             </label>
             <div className="picture-file-text">{props.inputPicVid!==null?`${props.inputPicVid.name}`:''}</div>
             <span className="picture-file-text-icon-container">{props.inputPicVid!==null?<FontAwesomeIcon icon={faX} className="picture-file-text-icon" onClick={()=>{props.setPicVid(null); setPreviewpic(false);}}/>:''}</span>
-            
               </div>
+              {props.inputPicVid.type.split("/")[0]==="video" && <div className="soundbutton" onClick={handleVolume}>
+                {props.inputPicVid.muted==true?<FontAwesomeIcon icon={faVolumeXmark} className="soundicon"/>:
+                <FontAwesomeIcon icon={faVolumeHigh} className="soundicon"/>}
+              
+              </div>}
               <div className="inputpreview" onClick={handlepreview}>
               <FontAwesomeIcon icon={faMagnifyingGlass} className="previewicon"/>
               </div>
@@ -184,11 +202,19 @@ const renderpreviewPicVid=()=>{
             <label htmlFor="duration" className="form-label">
             <FontAwesomeIcon icon={faStopwatch} className="icon"/>
             <select name="duration" id="duration"  className="form-duration" value={props.inputDuration} onInput={handleDuration}>
-              {[...Array(20)].map((x,i)=>{
+              {[...Array(10)].map((x,i)=>{
 
                   return (<option key={i} value={`${i+1}s`}>{`${i+1} seconds`}</option>)
                 
               })}
+              <option key={'15s'} value='15s'>15 seconds</option>
+              <option key={'20s'} value='20s'>20 seconds</option>
+              <option key={'30s'} value='30s'>30 seconds</option>
+              <option key={'45s'} value='45s'>45 seconds</option>
+              <option key={'60s'} value='60s'>1 minute</option>
+              <option key={'120s'} value='120s'>2 minute</option>
+              <option key={'180s'} value='180s'>3 minute</option>
+              <option key={'300s'} value='300s'>5 minute</option>
             </select>
             </label>
           

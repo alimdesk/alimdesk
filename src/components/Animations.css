@@ -21,6 +21,18 @@
     }
 
 }
+@keyframes Nothing{
+    0% {
+        visibility: visible;
+        
+    }
+    100% {
+        visibility: visible;
+        
+        
+    }
+
+}
 @keyframes Slide{
     0% {
         visibility: visible;
@@ -35,7 +47,7 @@
     }
 
     90% {
-        visibility: visible;
+        
         visibility: visible;
         opacity: 1;
         transform: translate(-50%,-50%);
@@ -133,6 +145,18 @@
     100% {
         visibility: visible;
         transform: translate(0,-100vh);
+    }
+
+}
+@keyframes nothingpreview{
+    0% {
+        visibility: visible;
+        
+    }
+    100% {
+        visibility: visible;
+        
+        
     }
 
 }

@@ -206,13 +206,7 @@ const sliderstyle={
             
             <label htmlFor="form-timer-size" className="form-label">
             <FontAwesomeIcon icon={faTextHeight} className="icon"/>
-            <select name="size" id="form-timer-size"  className="form-size"  value={props.timer.size} onInput={handleSize}>
-              {[...Array(71)].map((x,i)=>{
-
-                  return (<option key={i} value={`${i+40}`}>{`${i+40}`}</option>)
-                
-              })}
-            </select>
+            <input type="number" name="size" id="form-timer-size"  className="form-size" min={40} max={250}  value={props.timer.size} onInput={handleSize}/>
             </label>
             
             <label htmlFor="font" className="form-label">

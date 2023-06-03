@@ -27,7 +27,22 @@ function ScreenPicture(props) {
       if(props.element.type.split("/")[0]==="image"){
         return (<img src={props.element.src} className="picvid" alt={props.element.name}/>);
       }else if(props.element.type.split("/")[0]==="video"){
-        return (<video  src={props.element.src} className="picvid" muted autoPlay loop />);
+        if(props.element.muted==true){
+          if(props.lines.length===1&&props.timer.on===false){
+            return (<video  src={props.element.src} className="picvid" muted autoPlay loop/>);
+          }else{
+            return (<video  src={props.element.src} className="picvid" muted autoPlay  onEnded={nextAnimation} />);
+          }
+          
+        }else{
+          if(props.lines.length===1&&props.timer.on===false){
+            return (<video  src={props.element.src} className="picvid" autoPlay loop/>);
+          }else{
+            return (<video  src={props.element.src} className="picvid" autoPlay  onEnded={nextAnimation}/>);
+          }
+          
+        }
+        
       }else{
         return "";
       }
