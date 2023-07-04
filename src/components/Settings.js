@@ -62,14 +62,17 @@ function Settings(props) {
     <div className="menu">
     
       <div className="importdownload">
-      <label htmlFor="import"  className="projectlabel">Import</label>
+      <label htmlFor="import"  className="projectlabel">Import
+      <span className="importgraphic"></span>
+      </label>
       <input type="file" className="import" onInput={importproject} id="import" accept=".txt"></input>
 
       <div className="answermenu"><label htmlFor="form-answer"  className="projectname">Project Name</label>
       <input type="text" value={props.projectName} className="form-answer" id="form-answer" onChange={handleName} />
       </div>
 
-      <div className="download" onClick={downloadproject}>Download</div>
+      <div className="download" onClick={downloadproject}>Download
+      <span className="downloadgraphic"></span></div>
       </div>
     <MenuButtons
     menuOptions={props.menuOptions}

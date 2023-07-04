@@ -69,9 +69,9 @@ const changeRepeat=()=>{
 }))
 }      
   
-const handleDragStart=()=>{
+const handleDragStart=(e)=>{
   props.setDragItemIndex(props.index);
-
+  e.dataTransfer.setData('text', 'some_dummy_data');
 
 }
 

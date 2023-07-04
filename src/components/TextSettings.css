@@ -168,9 +168,12 @@
     border-radius: 5px;
     border: 1px solid #D1B000;
     color: black;
+    cursor: pointer;
+    transition: transform 200ms;
 }
 .form-button:hover{
     background-color: #D1B000;
+    transform: scale(1.1);
 
 }
 .form-button:hover .icon{

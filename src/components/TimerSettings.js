@@ -166,8 +166,8 @@ const onoffstyle= {
 }
 const sliderstyle={
   backgroundColor: props.timer.on===true?"black":"#D1B000",
-  left: props.timer.on===true?"":0,
-  right: props.timer.on===true?0:""
+  left: props.timer.on===true?"auto":0,
+  right: props.timer.on===true?0:"auto"
 }
 
   return (

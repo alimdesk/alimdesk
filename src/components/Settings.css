@@ -26,24 +26,46 @@
 
 }
 .projectlabel{
+    display: inline-block;
+    position: relative;
     padding: 4px;
     font-size: 1rem;
     margin-bottom: 15px;
     border-radius: 5px;
     border: 1px solid #D1B000;
     margin-right: 5px;
+    transition: background-color 200ms, color 200ms;
+   
+
     
 }
 .projectlabel:hover{
     background-color: #D1B000;
-    color: black;   
+    color: black;
+    cursor: pointer; 
 }
 .import{
     display: none;
 }
-
+.projectlabel:hover .importgraphic{
+    width: 100%;
+    transform: scale(1.1);
+}
+.importgraphic{
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    left:0;
+    width: 0%;
+    z-index: -1;
+    height: 100%;
+    border-radius: 5px;
+    background-color: #D1B000;
+    transition: width 200ms,transform 200ms;
+}
 
 .download{
+    position: relative;
     display: inline-block;
     padding: 4px;
     font-size: 1rem;
@@ -52,12 +74,30 @@
     border: 1px solid #D1B000;
     margin-left: 5px;
     user-select: none;
+    transition: background-color 200ms, color 200ms;
 }
 .download:hover{
     background-color: #D1B000;
     color: black;
+    cursor: pointer;
 }
-
+.download:hover .downloadgraphic{
+    height: 100%;
+    transform: scale(1.1);
+    
+}
+.downloadgraphic{
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    left:0;
+    width: 100%;
+    z-index: -1;
+    height: 0%;
+    border-radius: 5px;
+    background-color: #D1B000;
+    transition: height 200ms,transform 200ms;
+}
 .projectname{
     margin: auto;
     
@@ -80,8 +120,10 @@
     border-radius: 5px;
     color: #D1B000;
     margin-top: 10px;
+    transition: transform 200ms;
 }
 .playbutton:hover{
     background-color: #D1B000;
     color: black;
+    transform: scale(1.2);
 }

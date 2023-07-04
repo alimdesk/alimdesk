@@ -11,7 +11,7 @@
 .ListText{
 position: relative;
 display: block;
-padding:  14px 0 14px 0;
+padding:  17px 0 10px 0;
 width: 98%;
 border-radius: 5px;
 margin-bottom: 5px;
@@ -50,6 +50,7 @@ padding-top:60px;
     border-radius: 5px;
     margin-bottom: 5px;
     border: 1px solid #D1B000;
+    cursor:grabbing;
     
 }
 
@@ -73,12 +74,14 @@ padding-top:60px;
 .listbutton:hover{
     background-color: #D1B000;
     color: black;
+    cursor: pointer;
     
 }
 .ListText:hover .listhovermenu{
 display: block;
 padding-top: 5px;
 text-align: center;
+
 
 
 

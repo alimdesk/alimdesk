@@ -11,11 +11,15 @@
     border-radius: 5px;
     margin-left: 10px;
     font-weight: bold;
+    transition: background-color 200ms, color 200ms, transform 200ms;
 
 }
 .menu-b:hover{
     background-color: #D1B000;
     color: black;
+    cursor: pointer;
+    transform: scale(1.1);
+    
 }
 .checked-b{
     background-color: #D1B000;

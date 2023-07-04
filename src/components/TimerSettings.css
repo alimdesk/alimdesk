@@ -39,7 +39,7 @@ border-radius: 100px;
 position: relative;
 border: 1px solid #D1B000;
 
-transition: background-color 0.5s linear;
+transition: background-color 0.2s linear;
 
 }
 
@@ -70,9 +70,13 @@ transition: background-color 0.5s linear;
     position: absolute;
     padding-top: 5px;
     user-select: none;
+    cursor: pointer;
+    transition: color 200ms;
     
     
-    
+}
+.onofftext:hover{
+    color:#D1B000;
 }
 .off{
     right: 105%;
@@ -107,4 +111,5 @@ transition: background-color 0.5s linear;
     height:100%;
     z-index: 2;
     user-select: none;
+    cursor: pointer;
 }

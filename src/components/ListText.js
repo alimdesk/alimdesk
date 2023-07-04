@@ -1,4 +1,5 @@
 import React from "react";
+import {useState} from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faX,faFont,faForward,faPaintbrush,faStopwatch,faTextHeight } from '@fortawesome/free-solid-svg-icons'
 import "./ListText.css";
@@ -6,6 +7,7 @@ import "./ListText.css";
 function ListText(props) {
   const fonts = props.fontarray;
   const animates = props.animarray;
+  const [canDrag, setCanDrag] = useState(true);
 
 const deletehandler=()=>{
   props.setLines(props.list.filter((td)=>{return td !== props.line}));
@@ -65,9 +67,9 @@ const changeDuration=(e)=>{
    return td;
 }))
 }
-const handleDragStart=()=>{
+const handleDragStart=(e)=>{
   props.setDragItemIndex(props.index);
-
+  e.dataTransfer.setData('text', 'some_dummy_data');
 
 }
 
@@ -93,12 +95,18 @@ const handleDragClass=()=>{
   
   
 }
+const cancelDragPropagation=()=>{
+ setCanDrag(false);
+}
+const startDragPropagation=()=>{
+  setCanDrag(true);
+ }
 
   return (
-<div className={handleDragClass()}  draggable onDragStart={handleDragStart} onDragOver={props.handleDragOver} onDrop={props.handleDrop} onDragEnter={handleDragEnter} onDragLeave={props.handleDragLeave} onDragEnd={props.handleDragEnd}>
+<div className={handleDragClass()}  draggable={canDrag} onDragStart={handleDragStart} onDragOver={props.handleDragOver} onDrop={props.handleDrop} onDragEnter={handleDragEnter} onDragLeave={props.handleDragLeave} onDragEnd={props.handleDragEnd}>
   <div className="listbutton-text">
     
-  <input type="text" className="list-text" value={props.line.text} onInput={changeText}/>
+  <input type="text" className="list-text" value={props.line.text} onInput={changeText} onFocus={cancelDragPropagation} onBlur={startDragPropagation}/>
   <button className="listbutton" onClick={deletehandler}>
     <FontAwesomeIcon icon={faX}/>
   </button>
