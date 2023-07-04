@@ -1,4 +1,4 @@
-# Abuntant Life Service Introductions
+# Abundant Life Service Introductions
 
 This site is used to create simple presentation that continually cycles through, to display information during the announcements or before service
 
