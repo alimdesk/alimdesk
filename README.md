@@ -1,6 +1,8 @@
-# Getting Started with Create React App
+# Abuntant Life Service Introductions
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+This site is used to create simple slides that continually cycles through, to display information during the announcements or before service
 
 ## Available Scripts
 
