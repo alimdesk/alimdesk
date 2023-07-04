@@ -2,6 +2,11 @@
 
 This site is used to create simple presentation that continually cycles through, to display information during the announcements or before service
 
+### Play Button
+This button is located at the bottom of the menu, and it plays the presentation.
+
+### Pause button
+This button is located at the top right of the screen during the presentation. This button stops the presentation and bring the user back to the menu.
 
 ### Import button
 This button allows the user to bring in projects they have made with this site. 
