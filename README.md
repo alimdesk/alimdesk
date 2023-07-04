@@ -1,70 +1,38 @@
-# Getting Started with Create React App
+# Abundant Life Service Introductions
+
+This site is used to create simple presentation that continually cycles through, to display information during the announcements or before service
+
+
+### Import button
+This button allows the user to bring in projects they have made with this site. 
+
+### Project Name
+This text field allows the user to name the project
+
+### download button
+The site automatically saves all text, but does not save pictures uploaded by the user. So in order for the user to save a project that includes user submitted pictures, they must use the download button and save the project to their computer, to bring in later.
+
+This button allows the user to download the current project as a text file.
+
+
+
+## Text Settings
+
+This is the main screen for adding text and media to the project. the menu options allow the user to input text, and change its color, size, font, animation and duration on screen. This menu also allows adding pictures and videos with the media button. Media menu options allow the user to preview the media, change its animation, and duration, and mute or loop videos. After inputing text or media, the user presses the submit button, which adds the text/media to the list below
+
+### Text Settings List
+
+This list holds all the text/media that the user submits.
+It has menu options to allow the user to change aspects of the text/media or to insert a new text/media , or delete instead.
+The items in this list are able to be dragged and dropped into different positions. It is best for the user to drag starting from the top of the item.
+
+## Timer Settings
+
+This menu is similar to the Text settings, allowing the user to manipulate text only. It has the option to display a countdown timer set by the user. This timer is displayed after all the items in the text screen list have already been displayed on the screen. It is able to be toggled ON and OFF. There is a preview that plays whenever the user changes a field
+
+## Theme Settings
+
+This menu allows the user to set a background picture or video that continously displayed throughout the presentation. The user can pick between preset images or the user can choose their own images/videos from their computer. If selecting videos, the user has the option to have the video play while muted, with the mute button
+
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-## Available Scripts
-
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
