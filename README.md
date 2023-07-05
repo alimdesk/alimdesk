@@ -40,6 +40,7 @@ This menu is similar to the Text settings, allowing the user to manipulate text 
 This menu allows the user to set a background picture or video that continously displayed throughout the presentation. The user can pick between preset images or the user can choose their own images/videos from their computer. If selecting videos, the user has the option to have the video play while muted, with the mute button
 
 ## Screen
-This is where the presentation is played. It starts in fullscreen mode, but the user can press ESC to exit that mode. The user can click on the screen to skip to the next slide in the presentation
+This is where the presentation is played. It starts in fullscreen mode, but the user can press ESC to exit that mode. The user can click on the right side of the screen to skip to the next slide in the presentation, and click on the left side to go back a slide.
+
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
