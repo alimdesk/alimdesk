@@ -10,3 +10,15 @@
     z-index: 3;
     user-select: none;
 }
+.forwardbackward{
+    position: relative;
+    height: 100%;
+    width: 100%;
+    z-index: 4;
+
+}
+.forwardbackwardbtn{
+    display: inline-block;
+    height: 100%;
+    width: 50%;
+}

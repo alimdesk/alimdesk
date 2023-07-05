@@ -13,20 +13,25 @@ function Settings(props) {
     if(e.target.files.length>0){
       const fr = new FileReader();
     fr.addEventListener("load",e=>{
-      const proj = JSON.parse(fr.result);
-      if(proj.hasOwnProperty('lines')){
-        props.setLines(proj.lines);
+      try {
+        const proj = JSON.parse(fr.result);
+        if(proj.hasOwnProperty('lines')){
+          props.setLines(proj.lines);
+        }
+        if(proj.hasOwnProperty('timer')){
+          props.setTimer(proj.timer);
+        }
+        if(proj.hasOwnProperty('theme')){
+          props.setInputTheme(proj.theme);
+          
+        }
+        if(proj.hasOwnProperty('name')){
+          props.setProjectName(proj.name);
+        }
+      } catch (error) {
+        window.alert("Error. Unable to import project");
       }
-      if(proj.hasOwnProperty('timer')){
-        props.setTimer(proj.timer);
-      }
-      if(proj.hasOwnProperty('theme')){
-        props.setInputTheme(proj.theme);
-        
-      }
-      if(proj.hasOwnProperty('name')){
-        props.setProjectName(proj.name);
-      }
+
 
     })
     fr.readAsText(e.target.files[0]);

@@ -57,13 +57,33 @@ function Screen(props) {
       props.setcrntScrRender(0);
     }
   }
+  const clickBack=()=>{
+    if(props.lines.length===0){
+      props.setcrntScrRender(1);
+    }else if(props.crntScrRender>0){
+      props.setcrntScrRender(props.crntScrRender - 1);
+    }else if(props.crntScrRender===0 && props.timer.on===true){
+      props.setcrntScrRender(props.lines.length);
+    }else if(props.crntScrRender===0 && props.timer.on===false){
+      props.setcrntScrRender(props.lines.length-1);
+    }else{
+      props.setcrntScrRender(0);
+    }
+
+    }
+  
+
 
   return (
 <div className="Screen" >
 <EditButton playOrPause={props.playOrPause}/>
     {props.renderTheme(backgroundstyle)}
-    <div className="content" onClick={clickThruAnimation} >
+    <div className="content" >
       {renderOnScreen(props.crntScrRender)}
+      <div className="forwardbackward">
+      <div className="forwardbackwardbtn" onClick={clickBack}></div>
+        <div className="forwardbackwardbtn"onClick={clickThruAnimation}></div>
+      </div>
     </div>
 
 </div>

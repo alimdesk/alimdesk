@@ -13,30 +13,7 @@
     
     
 }
-.ListContainer{
-    margin: auto;
-    display: block;
-    width: 63%;
-    padding: 10px;
-    border-radius: 10px;
-    overflow-y: scroll;
-    max-height: 55%;
 
-}
-.ListContainer::-webkit-scrollbar{
-    width:5px;
-
-}
-.ListContainer::-webkit-scrollbar-track{
-    background-color: transparent;
-    border-radius: 10px;
-    
-}
-.ListContainer::-webkit-scrollbar-thumb{
-    
-    background-color: #D1B000;
-    border-radius: 10px;
-}
 .form-text{
     margin: auto;
     display: inline-block;

@@ -2,7 +2,7 @@ import React from "react";
 import {useState} from 'react';
 import ListText from "./ListText";
 import ListPicture from "./ListPicture";
-import './TextSettings.css';
+import './ListContainer.css';
 
 
 function ListContainer(props) {
@@ -32,9 +32,14 @@ const handleDrop=()=>{
   
   }
   
+const deleteall=()=>{
+  props.setLines([]);
+}
 
   return (
-  <div className="ListContainer" style={{border:props.lines.length>0?"1px solid #D1B000":""}}>
+  <div>
+     
+<div className="ListContainer" style={{border:props.lines.length>0?"1px solid #D1B000":""}}>
     {props.lines.map((line,index)=>{
       if(line.hasOwnProperty("src")){
         return (<ListPicture
@@ -81,6 +86,9 @@ const handleDrop=()=>{
       
     })}
   </div>
+  {props.lines.length>1 &&<button className="deleteall" onClick={deleteall}>Clear All</button> }
+  </div>
+  
   );
 }
 export default ListContainer;
