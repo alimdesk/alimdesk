@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/alimdesk/static/css/main.07acda7f.css",
-    "main.js": "/alimdesk/static/js/main.3a7652e0.js",
+    "main.css": "/alimdesk/static/css/main.fee15f75.css",
+    "main.js": "/alimdesk/static/js/main.7e5f84d1.js",
     "index.html": "/alimdesk/index.html",
-    "main.07acda7f.css.map": "/alimdesk/static/css/main.07acda7f.css.map",
-    "main.3a7652e0.js.map": "/alimdesk/static/js/main.3a7652e0.js.map"
+    "main.fee15f75.css.map": "/alimdesk/static/css/main.fee15f75.css.map",
+    "main.7e5f84d1.js.map": "/alimdesk/static/js/main.7e5f84d1.js.map"
   },
   "entrypoints": [
-    "static/css/main.07acda7f.css",
-    "static/js/main.3a7652e0.js"
+    "static/css/main.fee15f75.css",
+    "static/js/main.7e5f84d1.js"
   ]
 }
