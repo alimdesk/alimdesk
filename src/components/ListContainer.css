@@ -1,3 +1,4 @@
+
 .ListContainer{
     margin: auto;
     display: inline-block;
@@ -22,21 +23,4 @@
     
     background-color: #D1B000;
     border-radius: 10px;
-}
-.deleteall{
-    position: absolute;
-    margin-left: 10px;
-    display: inline-block;
-    padding: 4px;
-    font-size: 1rem;
-    border-radius: 5px;
-    border: 1px solid #D1B000;
-    background-color: black;
-    color: white;
-    cursor: pointer;
-    transition: background-color 200ms,color 200ms;
-}
-.deleteall:hover{
-    background-color: #D1B000;
-    color: black;
 }

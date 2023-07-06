@@ -110,6 +110,9 @@ const renderpreviewPicVid=()=>{
   }
 
 }
+const deleteall=()=>{
+  props.setLines([]);
+}
 
   return (
 <div className="TextSettings">
@@ -239,7 +242,7 @@ const renderpreviewPicVid=()=>{
   animarray={props.animarray}
   setPreviewpic={setPreviewpic}
   setPreviewdetails={setPreviewdetails}/>
-
+  {props.lines.length>1 &&<button className="deleteall" onClick={deleteall}>Clear All</button> }
 </div>
   );
 }

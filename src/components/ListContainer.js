@@ -32,12 +32,8 @@ const handleDrop=()=>{
   
   }
   
-const deleteall=()=>{
-  props.setLines([]);
-}
 
   return (
-  <div>
      
 <div className="ListContainer" style={{border:props.lines.length>0?"1px solid #D1B000":""}}>
     {props.lines.map((line,index)=>{
@@ -85,8 +81,6 @@ const deleteall=()=>{
       }
       
     })}
-  </div>
-  {props.lines.length>1 &&<button className="deleteall" onClick={deleteall}>Clear All</button> }
   </div>
   
   );
