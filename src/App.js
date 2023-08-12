@@ -102,7 +102,7 @@ const [timer, setTimer] = useState({
 });
 const [inputPicVid, setPicVid] = useState(null);
 
-  
+
   const playOrPause =()=>{
     if(lines.length===0){
       setcrntScrRender(1);
@@ -132,13 +132,13 @@ const [inputPicVid, setPicVid] = useState(null);
       return "";
     }else{
       if(inputTheme.type.split("/")[0]==="image"){
-        return (<img style={styleobj} src={inputTheme.src} alt={inputTheme.name}/>);
+        return (<img style={styleobj} src={inputTheme.src} alt={inputTheme.name} />);
       }else if(inputTheme.type.split("/")[0]==="video"){
-        return (<video style={styleobj} src={inputTheme.src} muted={inputTheme.muted==true?true:false} autoPlay loop/>);
+        return (<video style={styleobj} src={inputTheme.src} muted={inputTheme.muted==true?true:false} autoPlay loop />);
       }else{
         return "";
       }
-
+      
     }
   }
 
@@ -178,8 +178,7 @@ const [inputPicVid, setPicVid] = useState(null);
 
   useEffect(()=>{
     // save theme if theme is in array
-    let filtergifs = gifarray.filter(g=>{return g.name===inputTheme.name && g.src===inputTheme.src && g.type===inputTheme.type});
-    if(filtergifs.length==1){
+    if(gifarray.some((g)=> g.name===inputTheme.name && g.src===inputTheme.src && g.type===inputTheme.type)){
       localStorage.setItem("theme",JSON.stringify(inputTheme));
       
     }
@@ -245,6 +244,7 @@ const [inputPicVid, setPicVid] = useState(null);
       menuOptions={menuOptions}
       fontarray={fontarray}
       animarray={animarray}
+     
 
       />: <Screen
       lines={lines}
