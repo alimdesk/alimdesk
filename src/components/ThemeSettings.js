@@ -12,8 +12,10 @@ function ThemeSettings(props) {
                       }
   
   const handleGif=(e)=>{
-    //console.log(JSON.parse(e.target.value))
-    props.setInputTheme(JSON.parse(e.target.value));
+    props.setInputTheme((prev)=>{
+      URL.revokeObjectURL(prev.src);
+      return JSON.parse(e.target.value)});
+    
   }
   const handleFile=(e)=>{
     if(e.target.files.length>0){
@@ -21,16 +23,18 @@ function ThemeSettings(props) {
         name: e.target.files[0].name,
         muted: false,
         type: e.target.files[0].type,
-        src: ''
+        src: null
       }
       const fr = new FileReader();
       fr.addEventListener("load",e=>{
-        newtheme.src = fr.result;
+        const blob = new Blob([fr.result], { type: newtheme.type });
+       newtheme.src = URL.createObjectURL(blob);
+       URL.revokeObjectURL(props.inputTheme.src);
         props.setInputTheme(newtheme);
         
       
       })
-      fr.readAsDataURL(e.target.files[0]);
+      fr.readAsArrayBuffer(e.target.files[0]);
     }
     
   }

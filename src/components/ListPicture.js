@@ -8,6 +8,7 @@ function ListPicture(props) {
   const animates = props.animarray;
 
 const deletehandler=()=>{
+  URL.revokeObjectURL(props.line.src);
   props.setLines(props.list.filter((td)=>{return td !== props.line}));
 }
 
@@ -36,10 +37,11 @@ const changePicVid=(e)=>{
           }
           const fr = new FileReader();
           fr.addEventListener("load",e=>{
-            
+            URL.revokeObjectURL(props.line.src);
+            const blob = new Blob([fr.result], { type: newpicvid.type });
             props.setLines(props.list.map((td)=>{
                 if(td.id === props.line.id){
-                 td.src = fr.result;
+                 td.src = URL.createObjectURL(blob);
                  td.name = newpicvid.name;
                  td.type = newpicvid.type;
                  
@@ -48,7 +50,7 @@ const changePicVid=(e)=>{
             }))
             
           })
-          fr.readAsDataURL(e.target.files[0]);
+          fr.readAsArrayBuffer(e.target.files[0]);
         }else{}
         
 }

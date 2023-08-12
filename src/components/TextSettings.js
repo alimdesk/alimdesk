@@ -14,33 +14,34 @@ function TextSettings(props) {
   const animates = props.animarray;
 
 const handleInput=(e)=>{
-  props.setInputText(e.target.value);
-  if(props.inputPicVid!==null){
-    props.setPicVid(null);
-  }
-  
+  props.setInputText(e.target.value); 
 }
+
 const handlePicVid=(e)=>{
   if(e.target.files.length>0){
     const newpicvid = {
-      id: `${e.target.files[0].name}${Date.now()}`,
+      id: `${Date.now()}`,
       name: e.target.files[0].name,
       muted: false,
       repeat: true,
-      src: "",
+      src: null,
       type: e.target.files[0].type
     }
     const fr = new FileReader();
     fr.addEventListener("load",e=>{
-      newpicvid.src = fr.result;
-      props.setPicVid(newpicvid);
+      const blob = new Blob([fr.result], { type: newpicvid.type });
+      newpicvid.src = URL.createObjectURL(blob);
+      props.setPicVid((prev)=>{
+        prev!==null?URL.revokeObjectURL(prev.src):null;
+        return newpicvid});
       props.setInputText("");
       
     
     })
-    fr.readAsDataURL(e.target.files[0]);
+    
+    fr.readAsArrayBuffer(e.target.files[0]);
   }else{
-    //props.setPicVid(null);
+    
   }
 }
 const handleColor=(e)=>{
@@ -69,7 +70,7 @@ const submitLine=(e)=>{
   e.preventDefault();
   if(props.inputText!==""&&props.inputPicVid==null){
     const header = {
-      id: `${props.inputText}${Date.now()}`,
+      id: `${Date.now()}`,
       text: props.inputText,
       font: props.inputFont,
       color: props.inputColor,
@@ -111,7 +112,23 @@ const renderpreviewPicVid=()=>{
 
 }
 const deleteall=()=>{
+
+  props.lines.map((line)=>{
+    if(line.hasOwnProperty('src')){
+      URL.revokeObjectURL(line.src);
+    }
+  })
   props.setLines([]);
+}
+const deletePicVid =()=>{
+
+  URL.revokeObjectURL(props.inputPicVid.src);
+  props.setPicVid(null);
+  /*props.setPicVid((prev)=>{
+   URL.revokeObjectURL(prev.src);
+    return null});
+    */
+    setPreviewpic(false);
 }
 
   return (
@@ -182,7 +199,7 @@ const deleteall=()=>{
             <FontAwesomeIcon icon={faPhotoFilm} className="picture-file-icon"/>
             </label>
             <div className="picture-file-text">{props.inputPicVid!==null?`${props.inputPicVid.name}`:''}</div>
-            <span className="picture-file-text-icon-container">{props.inputPicVid!==null?<FontAwesomeIcon icon={faX} className="picture-file-text-icon" onClick={()=>{props.setPicVid(null); setPreviewpic(false);}}/>:''}</span>
+            <span className="picture-file-text-icon-container">{props.inputPicVid!==null?<FontAwesomeIcon icon={faX} className="picture-file-text-icon" onClick={deletePicVid}/>:''}</span>
               </div>
               {props.inputPicVid.type.split("/")[0]==="video" && <div className="soundbutton" onClick={handleVolume}>
                 {props.inputPicVid.muted==true?<FontAwesomeIcon icon={faVolumeXmark} className="soundicon"/>:

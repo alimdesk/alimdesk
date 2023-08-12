@@ -8,7 +8,21 @@ import MenuButtons from "./menuButtons";
 import './Settings.css';
 
 function Settings(props) {
-
+  const dataURLToBlob = (dataURL)=>{
+    // Convert base64/URLEncoded data component to raw binary data
+    const byteString = atob(dataURL.split(",")[1]);
+  
+    // Separate out the mime component
+    const mimeString = dataURL.split(",")[0].split(":")[1].split(";")[0];
+  
+    // Write the bytes of the string to an ArrayBuffer
+    const arrayBuffer = new ArrayBuffer(byteString.length);
+    const ia = new Uint8Array(arrayBuffer);
+    for (let i = 0; i < byteString.length; i++) {
+      ia[i] = byteString.charCodeAt(i);
+    }
+    return new Blob([arrayBuffer], { type: mimeString });
+  }
   const importproject=(e)=>{
     if(e.target.files.length>0){
       const fr = new FileReader();
@@ -16,19 +30,31 @@ function Settings(props) {
       try {
         const proj = JSON.parse(fr.result);
         if(proj.hasOwnProperty('lines')){
+          proj.lines.map((line)=>{
+            if(line.hasOwnProperty('src')){
+              line.src = URL.createObjectURL(dataURLToBlob(line.src));
+            }
+            
+          })
           props.setLines(proj.lines);
         }
         if(proj.hasOwnProperty('timer')){
           props.setTimer(proj.timer);
         }
         if(proj.hasOwnProperty('theme')){
+          if(props.gifarray.some((g)=> {return g.name===proj.theme.name && g.src===proj.theme.src && g.type===proj.theme.type})==false){
+            proj.theme.src = URL.createObjectURL(dataURLToBlob(proj.theme.src));
+          }
+      
           props.setInputTheme(proj.theme);
           
         }
         if(proj.hasOwnProperty('name')){
           props.setProjectName(proj.name);
         }
+        
       } catch (error) {
+        console.error(error);
         window.alert("Error. Unable to import project");
       }
 
@@ -38,24 +64,77 @@ function Settings(props) {
 
     }
     
-    
   }
+  const objectURLToDataURL = (objectURL) => {
+    return new Promise((resolve, reject) => {
+      const fr = new FileReader();
+  
+      // Event listener for when FileReader has finished loading the data
+      fr.addEventListener("load", () => {
+        const dataURL = fr.result;
+        resolve(dataURL);
+      });
+  
+      // Event listener for FileReader errors
+      fr.addEventListener("error", (error) => {
+        reject(error);
+      });
+  
+      // Fetch the Object URL and read it as a Blob
+      fetch(objectURL)
+        .then((response) => response.blob())
+        .then((blob) => {
+          // Read the Blob as a data URL
+          fr.readAsDataURL(blob);
+        })
+        .catch((error) => {
+          reject(error);
+        });
+    });
+  };
+  
 
-  const downloadproject=()=>{
-    const proj = { name:props.projectName,
-                  lines: props.lines,
+  const  downloadproject = async()=>{
+
+    const clone = JSON.parse(JSON.stringify(props.lines));
+    const promises = [];
+    props.lines.map((line, index)=>{
+      if (line.hasOwnProperty("src")) {
+        promises.push(
+          (async () => {
+            const blob = await objectURLToDataURL(line.src);
+            clone[index].src = blob;
+          })()
+        );
+      }
+    })
+    let themeblob; 
+    if(props.gifarray.some((g)=>{return g.name===props.inputTheme.name && g.src===props.inputTheme.src && g.type===props.inputTheme.type})==false){
+      themeblob = await objectURLToDataURL(props.inputTheme.src);
+
+    }else{
+      themeblob = props.inputTheme.src;
+    }
+    
+    await Promise.all(promises);
+
+    const proj = {lines: clone,
+                  theme: {...props.inputTheme,src: themeblob},
                   timer: props.timer,
-                  theme: props.inputTheme
-              }
-              
+                  name: props.projectName
+                  }
+
     const stringp = JSON.stringify(proj); 
+    const dataBlob = new Blob([stringp], { type: 'application/json' });
+    const dataUrl = URL.createObjectURL(dataBlob);
     const element = document.createElement('a');
-    element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(stringp));
-    element.setAttribute('download', props.projectName);
+    element.href = dataUrl;
+    element.download = props.projectName==''?`${new Date().toLocaleDateString()}:${new Date().toLocaleTimeString()}.txt`:`${props.projectName}.txt`;
     element.style.display = 'none';
     document.body.appendChild(element);
     element.click();
     document.body.removeChild(element);
+    URL.revokeObjectURL(dataUrl);
   
   }
   const handleName=(e)=>{
@@ -76,7 +155,7 @@ function Settings(props) {
       <input type="text" value={props.projectName} className="form-answer" id="form-answer" onChange={handleName} />
       </div>
 
-      <div className="download" onClick={downloadproject}>Download
+      <div className="download" onClick={()=>{downloadproject()}}>Download
       <span className="downloadgraphic"></span></div>
       </div>
     <MenuButtons
@@ -112,6 +191,7 @@ function Settings(props) {
       inputTheme={props.inputTheme}
       renderTheme={props.renderTheme}
       gifarray={props.gifarray}
+   
   
       />}
 
